@@ -7,10 +7,13 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	rotationTriangle = 0.0f;
 	GLUTCallbacks::Init(this);
 	glutInit(&argc, argv);
-	glutInitWindowSize(900, 900);
+	glutInitDisplayMode(GLUT_DOUBLE);
+	glutInitWindowSize(800, 800);
+	glutInitWindowPosition(100, 100);
 	glutCreateWindow("Simple OpenGL Program");
 	glutDisplayFunc(GLUTCallbacks::Display);
 	glutTimerFunc(REFRESHRATE, GLUTCallbacks::Timer, REFRESHRATE);
+	glutKeyboardFunc(GLUTCallbacks::Keyboard);
 	glutMainLoop();
 	
 }
@@ -19,24 +22,25 @@ void HelloGL::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT); //This clears the scene
 	DrawSquare();
-	glFlush(); //flushes the scene drawn to the graphics card
-
+	
+	
 	
 	DrawRectangle();
-	glFlush(); // flushes the scene drawn to the graphics card
-
+	
+	
 	
 	DrawTriangle();
 	glFlush(); //flushes the scene drawn to the graphics card
-
+	glutSwapBuffers();
 	
 }
 
 void HelloGL::Update()
 {
+	/*Sleep(10);*/ // it makes the app pause for 10 ms, simulating a more complex Update() function and it makes a drop on the FPS
 	glutPostRedisplay();
 
-	rotationSquare += 0.5f;
+	
 
 	if (rotationSquare >= 360.0f) // Sets a rotation in the Square
 	{
@@ -58,24 +62,37 @@ void HelloGL::Update()
 	}
 }
 
+void HelloGL::Keyboard(unsigned char key, int x, int y)
+{
+	if (key == 'd')
+	{
+		rotationSquare += 0.5f;
+	}
+	else if (key == 'a')
+	{
+		rotationSquare += -0.5f;
+	}
+}
+
 
 void HelloGL::DrawSquare()
 {
 	glPushMatrix();
+	glTranslatef(-0.5f, 0.5f, 0.0f);
 	glRotatef(rotationSquare, 0.0f, 0.0f, 1.0f);
 	glBegin(GL_POLYGON);
 	{
 		glColor4f(1.0f, 0.0f, 0.0f, 0.0f);
-		glVertex2f(-0.75, 0.75); //define the first point of the polygon, top left
+		glVertex2f(-0.15, 0.15); //define the first point of the polygon, top left
 
 		glColor4f(0.0f, 4.0f, 1.0f, 0.0f);
-		glVertex2f(-0.5, 0.75); //next point, top rigth
+		glVertex2f(0.15, 0.15); //next point, top rigth
 
 		glColor4f(2.0f, 3.0f, 1.0f, 1.0f);
-		glVertex2f(-0.5, 0.5); //bottom right
+		glVertex2f(0.15, -0.15); //bottom right
 
 		glColor4f(1.0f, 4.0f, 5.0f, 0.0f);
-		glVertex2f(-0.75, 0.5); //next point, bottom left
+		glVertex2f(-0.15, -0.15); //next point, bottom left
 		glEnd(); //defines the end of the draw
 	}
 	glPopMatrix();
@@ -107,19 +124,19 @@ void HelloGL::DrawRectangle()
 void HelloGL::DrawTriangle()
 {
 	glPushMatrix();
-	glTranslatef(0.0f, 0.1f, 0.0f);
+	glTranslatef(0.5f, 0.5f, 0.0f);
 	glRotatef(rotationTriangle, 0.0f, 0.0f, -1.0f);
 	
 	glBegin(GL_POLYGON);
 	{
 		glColor4f(1.0f, 1.0f, 1.0f, 0.0f); // Color White Triangle
-		glVertex2f(0.25, 0.25); // First Point bottom left
+		glVertex2f(-0.25, 0.0); // First Point bottom left
 
 		glColor4f(1.0f, 1.0f, 0.0f, 0.0f);
-		glVertex2f(0.25, 0.5); // Top point
+		glVertex2f(0.0, 0.25); // Top point
 
 		glColor4f(0.0f, 1.0f, 0.0f, 0.0f);
-		glVertex2f(0.5, 0.25); // Bottom Right
+		glVertex2f(0.25, 0.0); // Bottom Right
 		glEnd();
 	}
 	

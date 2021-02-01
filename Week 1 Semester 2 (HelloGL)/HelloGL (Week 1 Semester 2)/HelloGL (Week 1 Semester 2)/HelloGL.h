@@ -4,7 +4,7 @@
 #include <gl/GLU.h> //OpenGL Utilities
 #include "GL\freeglut.h" //freeglut library
 #include "GLUTCallbacks.h"
-#define REFRESHRATE 17
+#define REFRESHRATE 16
 
 class HelloGL
 {
@@ -21,6 +21,8 @@ public:
 	void DrawRectangle();
 	void DrawTriangle();
 	void Update();
+	void Keyboard(unsigned char key, int x, int y);
+	
 
 private:
 
