@@ -6,6 +6,27 @@
 #include "GLUTCallbacks.h"
 #define REFRESHRATE 16
 
+struct Vector3
+{
+	float x;
+
+	float y;
+
+	float z;
+};
+
+struct Camera
+{
+	Vector3 eye;
+
+	Vector3 center;
+
+	Vector3 up;
+
+};
+
+
+
 class HelloGL
 {
 public:
@@ -20,6 +41,7 @@ public:
 	void DrawSquare();
 	void DrawRectangle();
 	void DrawTriangle();
+	void DrawCube();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
 	
@@ -29,6 +51,9 @@ private:
 	float rotationSquare;
 	float rotationRectangle;
 	float rotationTriangle;
+	float rotationCube;
+
+	Camera* camera;
 
 };
 
