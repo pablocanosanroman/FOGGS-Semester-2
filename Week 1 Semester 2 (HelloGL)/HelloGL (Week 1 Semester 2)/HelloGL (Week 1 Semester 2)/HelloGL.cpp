@@ -13,6 +13,8 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	rotationRectangle = 0.0f;
 	rotationTriangle = 0.0f;
 	rotationCube = 0.0f;
+	rotationSphere = 0.0f;
+	rotationTeapot = 0.0f;
 	GLUTCallbacks::Init(this);
 	glutInit(&argc, argv);
 	
@@ -58,6 +60,10 @@ void HelloGL::Display()
 	
 	DrawTriangle();*/
 	DrawCube();
+
+	DrawSphere();
+
+	DrawTeapot();
 	
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -103,18 +109,50 @@ void HelloGL::Update()
 	{
 		rotationCube = 0.0f;
 	}
+
+	rotationSphere += 1.5f;
+
+	if (rotationSphere >= 360.0f)
+	{
+		rotationSphere = 0.0f;
+	}
+
+	rotationTeapot += 1.0f;
+
+	if (rotationTeapot >= 360.0f)
+	{
+		rotationTeapot = 0.0f;
+	}
 }
 
 void HelloGL::Keyboard(unsigned char key, int x, int y)
 {
 	if (key == 'a')
 	{
-		rotationSquare += 1.5f;
+		camera->eye.x+= -0.1f;
 	}
 	else if (key == 'd')
 	{
-		rotationSquare += -1.5f;
+		camera->eye.x+= 0.1f;
 	}
+	else if (key == 'w')
+	{
+		camera->eye.y += 0.1f;
+
+	}
+	else if (key == 's')
+	{
+		camera->eye.y += -0.1f;
+	}
+	else if (key == 'e')
+	{
+		camera->eye.z += 0.1f;
+	}
+	else if (key == 'q')
+	{
+		camera->eye.z += -0.1f;
+	}
+	
 }
 
 
@@ -190,8 +228,27 @@ void HelloGL::DrawTriangle()
 void HelloGL::DrawCube()
 {
 	glPushMatrix();
-	glRotatef(rotationCube, 1.0f, 0.0f, 0.0f);
+	
+	glRotatef(rotationCube, 0.0f, 1.0f, 0.0f);
 	glutWireCube(0.1);
+	glPopMatrix();
+}
+
+void HelloGL::DrawSphere()
+{
+	glPushMatrix();
+	glTranslatef(0.0f, 0.2f, 0.0f);
+	glRotatef(rotationSphere, 1.0f, 0.0f, 0.0f);
+	glutWireSphere(0.05, 20, 20);
+	glPopMatrix();
+}
+
+void HelloGL::DrawTeapot()
+{
+	glPushMatrix();
+	glTranslatef(0.0f, -0.2f, 0.0f);
+	glRotatef(rotationTeapot, 0.0f, 1.0f, 0.0f);
+	glutWireTeapot(0.15);
 	glPopMatrix();
 }
 

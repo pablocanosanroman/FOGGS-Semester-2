@@ -42,6 +42,8 @@ public:
 	void DrawRectangle();
 	void DrawTriangle();
 	void DrawCube();
+	void DrawSphere();
+	void DrawTeapot();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
 	
@@ -52,6 +54,8 @@ private:
 	float rotationRectangle;
 	float rotationTriangle;
 	float rotationCube;
+	float rotationSphere;
+	float rotationTeapot;
 
 	Camera* camera;
 
