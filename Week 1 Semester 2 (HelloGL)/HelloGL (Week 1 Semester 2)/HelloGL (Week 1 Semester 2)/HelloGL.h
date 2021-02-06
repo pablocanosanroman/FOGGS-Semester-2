@@ -25,6 +25,16 @@ struct Camera
 
 };
 
+struct Color
+{
+	GLfloat r, g, b;
+};
+
+struct Vertex
+{
+	GLfloat x, y, z;
+};
+
 
 
 class HelloGL
@@ -38,10 +48,9 @@ public:
 	~HelloGL(void);
 
 	void Display();
-	void DrawSquare();
-	void DrawRectangle();
-	void DrawTriangle();
 	void DrawCube();
+	void DrawCubeArray();
+	void DrawIndexedCube();
 	void DrawSphere();
 	void DrawTeapot();
 	void Update();
@@ -50,14 +59,19 @@ public:
 
 private:
 
-	float rotationSquare;
-	float rotationRectangle;
-	float rotationTriangle;
+	
 	float rotationCube;
 	float rotationSphere;
 	float rotationTeapot;
 
 	Camera* camera;
+
+	static Vertex vertices[];
+	static Color colors[];
+
+	static Vertex indexedVertices[];
+	static Color indexedColors[];
+	static GLushort indices[];
 
 };
 

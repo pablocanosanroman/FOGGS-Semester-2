@@ -1,10 +1,5 @@
-﻿  HelloGL.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(167,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(170,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(173,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(176,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(190,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(193,25): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(196,24): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(199,26): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+﻿  GLUTCallbacks.cpp
+  HelloGL.cpp
+  main.cpp
+  Generating Code...
   HelloGL (Week 1 Semester 2).vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\Debug\HelloGL (Week 1 Semester 2).exe
