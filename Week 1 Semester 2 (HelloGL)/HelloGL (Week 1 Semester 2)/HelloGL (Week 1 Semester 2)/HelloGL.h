@@ -51,6 +51,9 @@ public:
 	void DrawCube();
 	void DrawCubeArray();
 	void DrawIndexedCube();
+	void DrawCubeArrayAlt();
+	void DrawIndexedCubeAlt();
+	void DrawIndexedPyramid();
 	void DrawSphere();
 	void DrawTeapot();
 	void Update();
@@ -72,6 +75,10 @@ private:
 	static Vertex indexedVertices[];
 	static Color indexedColors[];
 	static GLushort indices[];
+
+	static Vertex indexedVerticesPyramid[];
+	static Color indexedColorsPyramid[];
+	static GLushort indicesPyramid[];
 
 };
 

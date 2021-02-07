@@ -56,6 +56,24 @@ GLushort HelloGL::indices[] = { 0,1,2,  2,3,0,  //front
 7,4,3,  3,2,7,  //bottom
 4,7,6,  6,5,4 }; //back
 
+Vertex HelloGL::indexedVerticesPyramid[] = { 0,1,0,  -1,-1,1, //v0,v1
+1,-1,1,  1,-1,-1,  //v2,v3
+-1,-1,-1 //v4
+};
+
+Color HelloGL::indexedColorsPyramid[] = { 1,1,1,  1,1,0,  //v0, v1, 
+1,0,0,  1,0,1,  //v2, v3
+0,0,1 //v4
+};
+
+GLushort HelloGL::indicesPyramid[] = {1,2,0,  //Front
+0,2,3, //Right
+3,4,0, //Back
+0,4,1, //Left
+1,4,3,  3,2,1 //Bottom
+
+};
+
 HelloGL:: HelloGL(int argc, char* argv[])
 {
 	//Set up of the camera
@@ -112,7 +130,11 @@ void HelloGL::Display()
 	glClear(GL_COLOR_BUFFER_BIT); //This clears the scene
 
 	/*DrawCubeArray();*/
-	DrawIndexedCube();
+	/*DrawIndexedCube();*/
+
+	/*DrawCubeArrayAlt();*/
+	/*DrawIndexedCubeAlt();*/
+	DrawIndexedPyramid();
 	
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -342,6 +364,50 @@ void HelloGL::DrawIndexedCube()
 	{
 		glColor3f(indexedColors[indices[i]].r, indexedColors[indices[i]].g, indexedColors[indices[i]].b);
 		glVertex3f(indexedVertices[indices[i]].x, indexedVertices[indices[i]].y, indexedVertices[indices[i]].z);
+	}
+	glEnd();
+	glPopMatrix();
+}
+
+void HelloGL::DrawCubeArrayAlt()
+{
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, vertices);
+	glColorPointer(3, GL_FLOAT, 0, colors);
+
+	glPushMatrix();
+	glDrawArrays(GL_TRIANGLES, 0, 36);
+	glPopMatrix();
+
+	glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+void HelloGL::DrawIndexedCubeAlt()
+{
+	glEnableClientState(GL_VERTEX_ARRAY);
+	glEnableClientState(GL_COLOR_ARRAY);
+	glVertexPointer(3, GL_FLOAT, 0, indexedVertices);
+	glColorPointer(3, GL_FLOAT, 0, indexedColors);
+
+	glPushMatrix();
+	glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, indices);
+	glPopMatrix();
+
+	glDisableClientState(GL_COLOR_ARRAY);
+	glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+void HelloGL::DrawIndexedPyramid()
+{
+	glPushMatrix();
+
+	glBegin(GL_TRIANGLES);
+	for (int i = 0; i < 18; i++)
+	{
+		glColor3f(indexedColorsPyramid[indicesPyramid[i]].r, indexedColorsPyramid[indicesPyramid[i]].g, indexedColorsPyramid[indicesPyramid[i]].b);
+		glVertex3f(indexedVerticesPyramid[indicesPyramid[i]].x, indexedVerticesPyramid[indicesPyramid[i]].y, indexedVerticesPyramid[indicesPyramid[i]].z);
 	}
 	glEnd();
 	glPopMatrix();
