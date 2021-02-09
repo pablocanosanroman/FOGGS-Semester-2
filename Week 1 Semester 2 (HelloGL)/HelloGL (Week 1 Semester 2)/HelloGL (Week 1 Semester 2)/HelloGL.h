@@ -1,40 +1,12 @@
 #pragma once
-#include <Windows.h> //Required for OpenDL on Windows
+#include <Windows.h> //Required for OpenGL on Windows
 #include <gl/GL.h> //OpenGL
 #include <gl/GLU.h> //OpenGL Utilities
 #include "GL\freeglut.h" //freeglut library
 #include "GLUTCallbacks.h"
+#include "Structures.h"
+#include "Cube.h"
 #define REFRESHRATE 16
-
-struct Vector3
-{
-	float x;
-
-	float y;
-
-	float z;
-};
-
-struct Camera
-{
-	Vector3 eye;
-
-	Vector3 center;
-
-	Vector3 up;
-
-};
-
-struct Color
-{
-	GLfloat r, g, b;
-};
-
-struct Vertex
-{
-	GLfloat x, y, z;
-};
-
 
 
 class HelloGL
@@ -48,37 +20,15 @@ public:
 	~HelloGL(void);
 
 	void Display();
-	void DrawCube();
-	void DrawCubeArray();
-	void DrawIndexedCube();
-	void DrawCubeArrayAlt();
-	void DrawIndexedCubeAlt();
-	void DrawIndexedPyramid();
-	void DrawSphere();
-	void DrawTeapot();
 	void Update();
 	void Keyboard(unsigned char key, int x, int y);
 	
 
 private:
 
-	
-	float rotationCube;
-	float rotationSphere;
-	float rotationTeapot;
 
 	Camera* camera;
-
-	static Vertex vertices[];
-	static Color colors[];
-
-	static Vertex indexedVertices[];
-	static Color indexedColors[];
-	static GLushort indices[];
-
-	static Vertex indexedVerticesPyramid[];
-	static Color indexedColorsPyramid[];
-	static GLushort indicesPyramid[];
+	Cube* cube[];
 
 };
 
