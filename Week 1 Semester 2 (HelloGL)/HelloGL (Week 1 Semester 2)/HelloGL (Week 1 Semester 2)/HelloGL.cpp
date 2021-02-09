@@ -44,7 +44,7 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	glViewport(0, 0, 800, 800); //Set the viewport of the entire window
 	
 	//Parameters: (Field of View angle, Aspect Ratio, Near Clipping distance, Far Clipping Distance)
-	gluPerspective(45, 1, 0, 1000); //Set the correct perspective (camera 3D)
+	gluPerspective(0, 1, 0, 1000); //Set the correct perspective (camera 3D)
 	
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
