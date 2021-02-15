@@ -7,6 +7,9 @@ HelloGL:: HelloGL(int argc, char* argv[])
 {
 	//Set up of the camera
 	camera = new Camera();
+
+	Cube::Load((char*)"cube.txt");
+
 	//set up cube
 	for (int i = 0; i < 200; i++)
 	{
@@ -48,7 +51,7 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
 	glEnable(GL_CULL_FACE);
-	
+
 	/*glEnable(GL_DEPTH_TEST);*/
 
 	glCullFace(GL_BACK);
@@ -60,6 +63,7 @@ HelloGL:: HelloGL(int argc, char* argv[])
 void HelloGL::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT /*| GL_DEPTH_BUFFER_BIT*/); //This clears the scene
+
 	for (int i = 0; i < 200; i++)
 	{
 		cube[i]->Draw();

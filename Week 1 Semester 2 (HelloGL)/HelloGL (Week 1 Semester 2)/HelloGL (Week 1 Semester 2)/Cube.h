@@ -9,9 +9,10 @@
 class Cube
 {
 private:
-	static Vertex indexedVertices[];
-	static Color indexedColors[];
-	static GLushort indices[];
+	static Vertex* indexedVertices;
+	static Color* indexedColors;
+	static GLushort* indices;
+	static int numVertices, numColors, numIndices;
 
 	GLfloat _rotation;
 	Vector3 _position;
@@ -22,5 +23,6 @@ public:
 
 	void Draw();
 	void Update();
+	static bool Load(char* path);
 };
 
