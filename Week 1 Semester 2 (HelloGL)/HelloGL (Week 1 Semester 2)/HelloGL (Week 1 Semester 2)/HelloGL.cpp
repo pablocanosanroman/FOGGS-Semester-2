@@ -5,6 +5,17 @@
 
 HelloGL:: HelloGL(int argc, char* argv[])
 {
+	srand(10);
+
+	InitObjects();
+
+	InitGL(argc, argv);
+	
+	glutMainLoop(); //Loop of the game
+}
+
+void HelloGL::InitObjects()
+{
 	//Set up of the camera
 	camera = new Camera();
 
@@ -15,54 +26,57 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	{
 		cube[i] = new Cube(((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
-	
+
 
 	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 1.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
+}
 
-	
+void HelloGL::InitGL(int argc, char* argv[])
+{
 	GLUTCallbacks::Init(this);
 	glutInit(&argc, argv);
-	
-	glutInitDisplayMode(GLUT_DOUBLE /*| GLUT_DEPTH*/); //Initialise double buffering
-	
+
+	glutInitDisplayMode(GLUT_DOUBLE | GLUT_DEPTH); //Initialise double buffering
+
 	glutInitWindowSize(800, 800); //Size of the window
-	
+
 	glutInitWindowPosition(100, 100); //Position of the window
-	
+
 	glutCreateWindow("Simple OpenGL Program"); //Create Window
-	
+
 	glutDisplayFunc(GLUTCallbacks::Display); //Initialise Display func
-	
+
 	glutTimerFunc(REFRESHRATE, GLUTCallbacks::Timer, REFRESHRATE); //Initialise timer to control the FPS
-	
+
 	glutKeyboardFunc(GLUTCallbacks::Keyboard); //Initialise the keyboard function
-	
+
 	glMatrixMode(GL_PROJECTION); // execute against the projection part of the pipeline
-	
+
 	glLoadIdentity(); //Load the identity matrix
-	
+
 	glViewport(0, 0, 800, 800); //Set the viewport of the entire window
-	
+
 	//Parameters: (Field of View angle, Aspect Ratio, Near Clipping distance, Far Clipping Distance)
 	gluPerspective(45, 1, 0, 1000); //Set the correct perspective (camera 3D)
-	
+
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
 	glEnable(GL_CULL_FACE);
 
-	/*glEnable(GL_DEPTH_TEST);*/
+	glEnable(GL_DEPTH_TEST);
+
+	glDepthFunc(GL_ALWAYS);
 
 	glCullFace(GL_BACK);
-	
-	glutMainLoop(); //Loop of the game
+
 	
 }
 
 void HelloGL::Display()
 {
-	glClear(GL_COLOR_BUFFER_BIT /*| GL_DEPTH_BUFFER_BIT*/); //This clears the scene
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
 	for (int i = 0; i < 200; i++)
 	{
