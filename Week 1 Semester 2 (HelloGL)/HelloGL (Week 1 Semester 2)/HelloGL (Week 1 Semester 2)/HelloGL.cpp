@@ -1,4 +1,5 @@
 #include "HelloGL.h"
+#include "MeshLoader.h"
 
 
 
@@ -19,12 +20,12 @@ void HelloGL::InitObjects()
 	//Set up of the camera
 	camera = new Camera();
 
-	Cube::Load((char*)"cube.txt");
+	Mesh* cubeMesh = MeshLoader::Load("cube.txt");
 
 	//set up cube
 	for (int i = 0; i < 200; i++)
 	{
-		cube[i] = new Cube(((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+		cube[i] = new Cube(cubeMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
 
 

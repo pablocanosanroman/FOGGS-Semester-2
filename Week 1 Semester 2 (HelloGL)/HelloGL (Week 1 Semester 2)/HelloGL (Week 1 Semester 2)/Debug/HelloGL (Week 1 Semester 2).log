@@ -1,3 +1,3 @@
-﻿  HelloGL.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(26,47): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+﻿  Cube.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\Cube.cpp(11,22): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
   HelloGL (Week 1 Semester 2).vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\Debug\HelloGL (Week 1 Semester 2).exe
