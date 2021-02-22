@@ -20,12 +20,19 @@ void HelloGL::InitObjects()
 	//Set up of the camera
 	camera = new Camera();
 
-	Mesh* cubeMesh = MeshLoader::Load("cube.txt");
+	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
+	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
 
 	//set up cube
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		cube[i] = new Cube(cubeMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+		objects[i] = new FlyingObjects(cubeMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+	}
+
+	//set up pyramid
+	for (int i = 100; i < 200; i++)
+	{
+		objects[i] = new StaticObjects(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
 
 
@@ -79,11 +86,15 @@ void HelloGL::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		cube[i]->Draw();
+		objects[i]->Draw();
 	}
 	
+	for (int i = 0; i < 100; i++)
+	{
+		objects[i]->Draw();
+	}
 	
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -101,29 +112,34 @@ void HelloGL::Update()
 
 	glutPostRedisplay();
 
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		cube[i]->Update();
+		objects[i]->Update();
+	}
+
+	for (int i = 0; i < 100; i++)
+	{
+		objects[i]->Update();
 	}
 	
 }
 
 void HelloGL::Keyboard(unsigned char key, int x, int y)
 {
-	if (key == 'a')
+	if (key == 'd')
 	{
 		camera->eye.x+= -0.1f;
 	}
-	else if (key == 'd')
+	else if (key == 'a')
 	{
 		camera->eye.x+= 0.1f;
 	}
-	else if (key == 'w')
+	else if (key == 's')
 	{
 		camera->eye.y += 0.1f;
 
 	}
-	else if (key == 's')
+	else if (key == 'w')
 	{
 		camera->eye.y += -0.1f;
 	}
@@ -145,9 +161,14 @@ HelloGL::~HelloGL(void)
 {
 	delete camera;
 
-	for (int i = 0; i < 200; i++)
+	for (int i = 0; i < 100; i++)
 	{
-		delete cube[i];
+		delete objects[i];
+	}
+
+	for (int i = 0; i < 100; i++)
+	{
+		delete objects[i];
 	}
 	
 }

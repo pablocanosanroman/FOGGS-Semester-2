@@ -62,7 +62,7 @@ namespace MeshLoader
 		//TODO: Load Indices
 	}
 
-	Mesh* MeshLoader::Load(const char* path)
+	Mesh* MeshLoader::Load(char* path)
 	{
 		Mesh* mesh = new Mesh();
 

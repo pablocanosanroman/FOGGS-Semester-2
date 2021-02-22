@@ -5,7 +5,8 @@
 #include "GL\freeglut.h" //freeglut library
 #include "GLUTCallbacks.h"
 #include "Structures.h"
-#include "Cube.h"
+#include "FlyingObjects.h"
+#include "StaticObjects.h"
 #define REFRESHRATE 16
 
 
@@ -30,7 +31,8 @@ private:
 
 
 	Camera* camera;
-	Cube* cube[200];
+	SceneObject* objects[200];
+	
 
 };
 
