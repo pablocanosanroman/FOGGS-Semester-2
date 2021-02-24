@@ -4,7 +4,7 @@
 
 //Cube.h
 
-FlyingObjects::FlyingObjects(Mesh* mesh, float x, float y, float z) : SceneObject(mesh)
+FlyingObjects::FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture)
 {
 	for (int i = 0; i < 100; i++)
 	{
@@ -37,10 +37,16 @@ void FlyingObjects::Draw()
 {
 	if (_mesh->Vertices != nullptr && _mesh->Colors != nullptr && _mesh->Indices != nullptr)
 	{
+		glBindTexture(GL_TEXTURE_2D, _texture->GetID());
+
+		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_VERTEX_ARRAY);
 		glEnableClientState(GL_COLOR_ARRAY);
+
 		glVertexPointer(3, GL_FLOAT, 0, _mesh->Vertices);
 		glColorPointer(3, GL_FLOAT, 0, _mesh->Colors);
+
+		glTexCoordPointer(2, GL_FLOAT, 0, _mesh->TexCoords);
 
 		glPushMatrix();
 		glTranslatef(_position.x, _position.y, _position.z);
@@ -53,6 +59,7 @@ void FlyingObjects::Draw()
 
 		glDisableClientState(GL_COLOR_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	}
 	
 }

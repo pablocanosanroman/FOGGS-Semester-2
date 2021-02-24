@@ -4,7 +4,7 @@
 
 //pyramid.h
 
-StaticObjects::StaticObjects(Mesh* mesh, float x, float y, float z) : SceneObject(mesh)
+StaticObjects::StaticObjects(Mesh* mesh, float x, float y, float z) : SceneObject(mesh, nullptr)
 {
 
 	_position.x = x;

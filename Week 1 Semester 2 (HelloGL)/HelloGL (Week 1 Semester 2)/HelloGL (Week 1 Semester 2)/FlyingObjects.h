@@ -15,7 +15,7 @@ private:
 	Vector3 _position;
 
 public:
-	FlyingObjects(Mesh* mesh, float x, float y, float z);
+	FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, float z);
 	~FlyingObjects();
 
 	void Draw();

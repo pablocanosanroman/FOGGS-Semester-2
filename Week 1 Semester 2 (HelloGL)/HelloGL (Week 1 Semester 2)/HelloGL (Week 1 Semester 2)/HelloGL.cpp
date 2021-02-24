@@ -23,10 +23,13 @@ void HelloGL::InitObjects()
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
 
+	Texture2D* texture = new Texture2D();
+	texture->Load((char*)"Penguins.raw", 512, 512);
+
 	//set up cube
 	for (int i = 0; i < 100; i++)
 	{
-		objects[i] = new FlyingObjects(cubeMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+		objects[i] = new FlyingObjects(cubeMesh, texture, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
 
 	//set up pyramid
@@ -71,13 +74,16 @@ void HelloGL::InitGL(int argc, char* argv[])
 
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
-	glEnable(GL_CULL_FACE);
+	glEnable(GL_TEXTURE_2D);//without this you only can see white boxes
 
 	glEnable(GL_DEPTH_TEST);
 
 	glDepthFunc(GL_ALWAYS);
 
+	glEnable(GL_CULL_FACE);
+
 	glCullFace(GL_BACK);
+
 
 	
 }
@@ -91,7 +97,7 @@ void HelloGL::Display()
 		objects[i]->Draw();
 	}
 	
-	for (int i = 0; i < 100; i++)
+	for (int i = 100; i < 200; i++)
 	{
 		objects[i]->Draw();
 	}
@@ -117,7 +123,7 @@ void HelloGL::Update()
 		objects[i]->Update();
 	}
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 100; i < 200; i++)
 	{
 		objects[i]->Update();
 	}
@@ -166,9 +172,10 @@ HelloGL::~HelloGL(void)
 		delete objects[i];
 	}
 
-	for (int i = 0; i < 100; i++)
+	for (int i = 100; i < 200; i++)
 	{
 		delete objects[i];
 	}
 	
+
 }
