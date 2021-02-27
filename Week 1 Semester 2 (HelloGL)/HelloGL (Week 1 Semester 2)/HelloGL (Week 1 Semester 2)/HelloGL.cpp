@@ -76,11 +76,11 @@ void HelloGL::InitGL(int argc, char* argv[])
 
 	glEnable(GL_TEXTURE_2D);//without this you only can see white boxes
 
+	glEnable(GL_CULL_FACE);
+
 	glEnable(GL_DEPTH_TEST);
 
 	glDepthFunc(GL_ALWAYS);
-
-	glEnable(GL_CULL_FACE);
 
 	glCullFace(GL_BACK);
 

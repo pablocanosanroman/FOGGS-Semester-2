@@ -45,10 +45,10 @@ void FlyingObjects::Draw()
 
 		glVertexPointer(3, GL_FLOAT, 0, _mesh->Vertices);
 		glColorPointer(3, GL_FLOAT, 0, _mesh->Colors);
-
 		glTexCoordPointer(2, GL_FLOAT, 0, _mesh->TexCoords);
 
 		glPushMatrix();
+
 		glTranslatef(_position.x, _position.y, _position.z);
 
 		glRotatef(_rotation, 1.0f, 1.0f, 0.0f);
