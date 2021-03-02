@@ -7,10 +7,10 @@
 HelloGL:: HelloGL(int argc, char* argv[])
 {
 	srand(10);
+	
+	InitGL(argc, argv);
 
 	InitObjects();
-
-	InitGL(argc, argv);
 	
 	glutMainLoop(); //Loop of the game
 }
@@ -76,15 +76,13 @@ void HelloGL::InitGL(int argc, char* argv[])
 
 	glEnable(GL_TEXTURE_2D);//without this you only can see white boxes
 
-	glEnable(GL_CULL_FACE);
-
 	glEnable(GL_DEPTH_TEST);
 
 	glDepthFunc(GL_ALWAYS);
 
+	glEnable(GL_CULL_FACE);
+
 	glCullFace(GL_BACK);
-
-
 	
 }
 

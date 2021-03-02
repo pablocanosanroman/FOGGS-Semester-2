@@ -6,14 +6,20 @@
 
 FlyingObjects::FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture)
 {
+
+
 	for (int i = 0; i < 100; i++)
 	{
-		_rotation = rand() % 360;
+		_rotation.x = rand() % 360;
+		_rotation.y = rand() % 360;
+		_rotation.z = rand() % 360;
+		
 	}
 
 	_position.x = x;
 	_position.y = y;
 	_position.z = z;
+	
 	
 
 }
@@ -51,7 +57,9 @@ void FlyingObjects::Draw()
 
 		glTranslatef(_position.x, _position.y, _position.z);
 
-		glRotatef(_rotation, 1.0f, 1.0f, 0.0f);
+		glRotatef(_rotation.x, 1.0f, 0.0f, 0.0f);
+		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
+		glRotatef(_rotation.z, 0.0f, 0.0f, 1.0f);
 
 		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_SHORT, _mesh->Indices);
 
@@ -67,9 +75,9 @@ void FlyingObjects::Draw()
 void FlyingObjects::Update()
 {
 	
-	_rotation += rand() % 2;
+	_rotation.x += rand() % 2;
+	_rotation.y += rand() % 2;
+	_rotation.z += rand() % 2;
 
-	
-	
 }
 

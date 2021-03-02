@@ -11,7 +11,7 @@ class FlyingObjects : public SceneObject
 {
 private:
 
-	GLfloat _rotation;
+	Vector3 _rotation;
 	Vector3 _position;
 
 public:

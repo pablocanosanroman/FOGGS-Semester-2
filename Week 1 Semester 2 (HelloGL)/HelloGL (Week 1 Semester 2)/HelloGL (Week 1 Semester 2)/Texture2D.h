@@ -7,7 +7,7 @@
 class Texture2D
 {
 private:
-	GLuint _ID;
+	GLuint _ID; //Texture ID
 	int _width, _height;
 
 public:

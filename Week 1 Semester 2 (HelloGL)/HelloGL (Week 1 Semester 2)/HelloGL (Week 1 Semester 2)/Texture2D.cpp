@@ -42,6 +42,8 @@ bool Texture2D::Load(char* path, int width, int height)
 	glGenTextures(1, &_ID); //Get next Texture ID
 	glBindTexture(GL_TEXTURE_2D, _ID); // Bind the texture to the ID
 	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, width, height, GL_RGB, GL_UNSIGNED_BYTE, tempTextureData); //Specify default of our texture image
+	/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);*/ //"Manual" mipmapping
 
 	delete[] tempTextureData; //Clear up the data-we don't need this anymore
 	return true;

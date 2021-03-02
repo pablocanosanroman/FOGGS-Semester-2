@@ -1,7 +1,4 @@
-﻿  FlyingObjects.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\FlyingObjects.cpp(11,22): warning C4244: '=': conversion from 'int' to 'GLfloat', possible loss of data
-  HelloGL.cpp
+﻿  HelloGL.cpp
 C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(32,78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
 C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(38,72): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-  Generating Code...
   HelloGL (Week 1 Semester 2).vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\Debug\HelloGL (Week 1 Semester 2).exe
