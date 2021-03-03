@@ -1,12 +1,13 @@
 #include "HelloGL.h"
 #include "MeshLoader.h"
+#include <ctime>
 
 
 
 
 HelloGL:: HelloGL(int argc, char* argv[])
 {
-	srand(10);
+	srand(time(NULL));
 	
 	InitGL(argc, argv);
 

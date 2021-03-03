@@ -16,7 +16,7 @@ FlyingObjects::FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, f
 		
 	}
 
-	_rotationSpeed = rand() % 2;
+	_rotationSpeed = rand() % 1 + 2;
 
 	_position.x = x;
 	_position.y = y;
