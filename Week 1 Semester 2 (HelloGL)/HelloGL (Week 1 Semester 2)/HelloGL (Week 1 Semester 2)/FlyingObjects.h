@@ -14,6 +14,7 @@ private:
 	Vector3 _rotation;
 	Vector3 _position;
 	GLfloat _rotationSpeed;
+	Material* _material;
 
 public:
 	FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, float z);
@@ -21,5 +22,6 @@ public:
 
 	void Draw();
 	void Update();
+	void Light();
 };
 

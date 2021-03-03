@@ -32,28 +32,38 @@ FlyingObjects::~FlyingObjects()
 
 	_mesh->Vertices = nullptr;
 
-	delete _mesh->Colors;
+	delete _mesh->Normals;
 
-	_mesh->Colors = nullptr;
+	_mesh->Normals = nullptr;
 
 	delete _mesh->Indices;
 
 	_mesh->Indices = nullptr;
+
+	delete _material;
+
 }
 
 void FlyingObjects::Draw()
 {
-	if (_mesh->Vertices != nullptr && _mesh->Colors != nullptr && _mesh->Indices != nullptr)
+	if (_mesh->Vertices != nullptr && _mesh->Normals != nullptr && _mesh->Indices != nullptr)
 	{
 		glBindTexture(GL_TEXTURE_2D, _texture->GetID());
 
 		glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 		glEnableClientState(GL_VERTEX_ARRAY);
-		glEnableClientState(GL_COLOR_ARRAY);
+		glEnable(GL_NORMAL_ARRAY);
 
 		glVertexPointer(3, GL_FLOAT, 0, _mesh->Vertices);
-		glColorPointer(3, GL_FLOAT, 0, _mesh->Colors);
+		glNormalPointer(GL_FLOAT, 0, _mesh->Normals);
 		glTexCoordPointer(2, GL_FLOAT, 0, _mesh->TexCoords);
+
+		Light(); //calls the material light for the object
+
+		glMaterialfv(GL_FRONT, GL_AMBIENT, &(_material->ambient.x));
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->diffuse.x));
+		glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->specular.x));
+		glMaterialfv(GL_FRONT, GL_SHININESS, &(_material->shininess));
 
 		glPushMatrix();
 
@@ -83,3 +93,14 @@ void FlyingObjects::Update()
 
 }
 
+void FlyingObjects::Light()
+{
+	_material = new Material();
+	_material->ambient.x = 0.8; _material->ambient.y = 0.05; _material->ambient.z = 0.05;
+	_material->ambient.w = 1.0;
+	_material->diffuse.x = 0.8; _material->diffuse.y = 0.05; _material->diffuse.z = 0.05;
+	_material->diffuse.w = 1.0;
+	_material->specular.x = 1.0; _material->specular.y = 1.0; _material->specular.z = 1.0;
+	_material->specular.w = 1.0;
+	_material->shininess = 100.0f;
+}

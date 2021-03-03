@@ -12,6 +12,8 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	InitGL(argc, argv);
 
 	InitObjects();
+
+	InitLight();
 	
 	glutMainLoop(); //Loop of the game
 }
@@ -22,7 +24,7 @@ void HelloGL::InitObjects()
 	camera = new Camera();
 
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
-	Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");
+	/*Mesh* pyramidMesh = MeshLoader::Load((char*)"pyramid.txt");*/
 
 	Texture2D* texture = new Texture2D();
 	texture->Load((char*)"Penguins.raw", 512, 512);
@@ -33,16 +35,39 @@ void HelloGL::InitObjects()
 		objects[i] = new FlyingObjects(cubeMesh, texture, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
 	}
 
-	//set up pyramid
-	for (int i = 100; i < 200; i++)
-	{
-		objects[i] = new StaticObjects(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
-	}
+	////set up pyramid
+	//for (int i = 100; i < 200; i++)
+	//{
+	//	objects[i] = new StaticObjects(pyramidMesh, ((rand() % 400) / 10.0f) - 20.0, ((rand() % 200) / 10.0f) - 10.0f, -(rand() % 1000) / 10.0f);
+	//}
 
 
 	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 1.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
+}
+
+void HelloGL::InitLight()
+{
+	_lightPosition = new Vector4();
+	_lightPosition->x = 0.0;
+	_lightPosition->y = 0.0;
+	_lightPosition->z = 1.0;
+	_lightPosition->w = 0.0;
+
+	_lightData = new Lighting();
+	_lightData->ambient.x = 0.2;
+	_lightData->ambient.y = 0.2;
+	_lightData->ambient.z = 0.2;
+	_lightData->ambient.w = 1.0;
+	_lightData->diffuse.x = 0.8;
+	_lightData->diffuse.y = 0.8;
+	_lightData->diffuse.z = 0.8;
+	_lightData->diffuse.w = 1.0;
+	_lightData->specular.x = 0.2;
+	_lightData->specular.y = 0.2;
+	_lightData->specular.z = 0.2;
+	_lightData->specular.w = 1.0;
 }
 
 void HelloGL::InitGL(int argc, char* argv[])
@@ -83,6 +108,10 @@ void HelloGL::InitGL(int argc, char* argv[])
 
 	glEnable(GL_CULL_FACE);
 
+	glEnable(GL_LIGHTING);
+
+	glEnable(GL_LIGHT0);
+
 	glCullFace(GL_BACK);
 	
 }
@@ -96,10 +125,10 @@ void HelloGL::Display()
 		objects[i]->Draw();
 	}
 	
-	for (int i = 100; i < 200; i++)
+	/*for (int i = 100; i < 200; i++)
 	{
 		objects[i]->Draw();
-	}
+	}*/
 	
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -122,11 +151,20 @@ void HelloGL::Update()
 		objects[i]->Update();
 	}
 
-	for (int i = 100; i < 200; i++)
+	/*for (int i = 100; i < 200; i++)
 	{
 		objects[i]->Update();
 	}
-	
+	*/
+
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->ambient.x));
+
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(_lightData->diffuse.x));
+
+	glLightfv(GL_LIGHT0, GL_SPECULAR, &(_lightData->specular.x));
+
+	glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->x));
+
 }
 
 void HelloGL::Keyboard(unsigned char key, int x, int y)
@@ -171,10 +209,12 @@ HelloGL::~HelloGL(void)
 		delete objects[i];
 	}
 
-	for (int i = 100; i < 200; i++)
+	/*for (int i = 100; i < 200; i++)
 	{
 		delete objects[i];
-	}
+	}*/
 	
+	delete _lightPosition;
 
+	delete _lightData;
 }

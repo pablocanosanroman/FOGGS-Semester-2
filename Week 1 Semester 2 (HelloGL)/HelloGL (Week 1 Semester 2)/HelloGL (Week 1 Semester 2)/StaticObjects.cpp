@@ -7,29 +7,29 @@
 StaticObjects::StaticObjects(Mesh* mesh, float x, float y, float z) : SceneObject(mesh, nullptr)
 {
 
-	_position.x = x;
-	_position.y = y;
-	_position.z = z;
+	//_position.x = x;
+	//_position.y = y;
+	//_position.z = z;
 	
 }
 
 StaticObjects::~StaticObjects()
 {
-	delete _mesh->Vertices;
+	//delete _mesh->Vertices;
 
-	_mesh->Vertices = nullptr;
+	//_mesh->Vertices = nullptr;
 
-	delete _mesh->Colors;
+	///*delete _mesh->Colors;
 
-	_mesh->Colors = nullptr;
+	//_mesh->Colors = nullptr;*/
 
-	delete _mesh->Indices;
+	//delete _mesh->Indices;
 
-	_mesh->Indices = nullptr;
+	//_mesh->Indices = nullptr;
 }
 
 void StaticObjects::Draw()
-{
+{/*
 	if (_mesh->Vertices != nullptr && _mesh->Colors != nullptr && _mesh->Indices != nullptr)
 	{
 		glEnableClientState(GL_VERTEX_ARRAY);
@@ -46,7 +46,7 @@ void StaticObjects::Draw()
 
 		glDisableClientState(GL_COLOR_ARRAY);
 		glDisableClientState(GL_VERTEX_ARRAY);
-	}
+	}*/
 }
 
 void StaticObjects::Update()
