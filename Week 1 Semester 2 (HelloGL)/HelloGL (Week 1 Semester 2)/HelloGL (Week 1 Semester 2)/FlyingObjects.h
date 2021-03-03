@@ -13,6 +13,7 @@ private:
 
 	Vector3 _rotation;
 	Vector3 _position;
+	GLfloat _rotationSpeed;
 
 public:
 	FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, float z);
