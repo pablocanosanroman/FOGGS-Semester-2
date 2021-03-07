@@ -20,8 +20,9 @@ int main(int argc, char* argv[])
 
 	lists->GetNode(head, 1);
 	
+	lists->PrintListBackwards(head);
 
-	std::cout << "delete list" << std::endl;
+	std::cout << "\ndelete list" << std::endl;
 
 	
 	lists->DeletefromPosition(head, 1);
