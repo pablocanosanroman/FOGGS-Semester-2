@@ -10,21 +10,5 @@ C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\
 C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\FlyingObjects.cpp(101,57): warning C4305: '=': truncation from 'double' to 'float'
 C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\FlyingObjects.cpp(101,86): warning C4305: '=': truncation from 'double' to 'float'
   GLUTCallbacks.cpp
-  HelloGL.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(35,78): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(59,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(60,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(61,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(63,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(64,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(65,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(67,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(68,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\HelloGL (Week 1 Semester 2)\HelloGL.cpp(69,30): warning C4305: '=': truncation from 'double' to 'float'
-  MeshLoader.cpp
-  SceneObject.cpp
-  StaticObjects.cpp
-  main.cpp
   Generating Code...
   HelloGL (Week 1 Semester 2).vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\Week 1 Semester 2 (HelloGL)\HelloGL (Week 1 Semester 2)\Debug\HelloGL (Week 1 Semester 2).exe

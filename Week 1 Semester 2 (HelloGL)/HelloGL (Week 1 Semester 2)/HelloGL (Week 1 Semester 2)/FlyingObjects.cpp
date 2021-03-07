@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-//Cube.h
+//Cube.cpp
 
 FlyingObjects::FlyingObjects(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture)
 {

@@ -16,6 +16,7 @@ HelloGL:: HelloGL(int argc, char* argv[])
 	InitLight();
 	
 	glutMainLoop(); //Loop of the game
+
 }
 
 void HelloGL::InitObjects()
