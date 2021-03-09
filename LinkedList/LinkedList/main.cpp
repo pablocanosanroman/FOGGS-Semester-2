@@ -19,6 +19,8 @@ int main(int argc, char* argv[])
 	lists->PrintList(head);
 
 	lists->GetNode(head, 1);
+
+	lists->Find(head, 40);
 	
 	lists->PrintListBackwards(head);
 

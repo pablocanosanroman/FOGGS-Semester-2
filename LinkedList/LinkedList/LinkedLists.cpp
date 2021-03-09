@@ -107,20 +107,23 @@ ListNode* LinkedLists::GetNode(ListNode* node, int pos)
 	return nullptr;
 }
 
-//ListNode* LinkedLists::Find(ListNode* node, int val)
-//{
-//	
-//	while (node != nullptr)
-//	{
-//		if (node->data == val)
-//		{
-//			
-//		}
-//		node = node->next;
-//	}
-//	
-//	
-//}
+ListNode* LinkedLists::Find(ListNode* node, int val)
+{
+	
+	while (node != nullptr)
+	{
+		if (node->data == val)
+		{
+			std::cout << "Node Address of the value " << node->data << ": " << node << std::endl;
+			return node;
+			
+		}
+		node = node->next;
+		
+	}
+	return nullptr; //val not in list
+	
+}
 
 void LinkedLists::DeletefromPosition(ListNode* node, int pos)
 {
