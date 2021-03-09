@@ -144,6 +144,7 @@
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="SolarSystem.h" />
     <ClInclude Include="structures.h" />
+    <ClInclude Include="Sun.h" />
     <ClInclude Include="Texture2D.h" />
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +153,7 @@
     <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="SolarSystem.cpp" />
+    <ClCompile Include="Sun.cpp" />
     <ClCompile Include="Texture2D.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

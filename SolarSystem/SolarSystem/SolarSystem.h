@@ -5,6 +5,7 @@
 #include "GL\freeglut.h" //freeglut library
 #include "GLUTCallbacks.h"
 #include "structures.h"
+#include "Sun.h"
 #define REFRESHRATE 16
 
 class SolarSystem
@@ -27,6 +28,7 @@ private:
 	Camera* camera;
 	Vector4* _lightPosition;
 	Lighting* _lightData;
+	SceneObject* sun;
 
 
 };

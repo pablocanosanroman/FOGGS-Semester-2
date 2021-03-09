@@ -18,6 +18,30 @@ SolarSystem::SolarSystem(int argc, char* argv[])
 
 SolarSystem::~SolarSystem()
 {
+	delete camera;
+
+	delete sun;
+
+
+}
+
+void SolarSystem::InitObjects()
+{
+	//Set up of the camera
+	camera = new Camera();
+
+	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
+
+	Texture2D* texture = new Texture2D();
+	texture->Load((char*)"stars.raw", 512, 512);
+
+	//set up cube
+	sun = new Sun(cubeMesh, texture, 0.0f, 0.0f, -20.0f);
+
+	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 1.0f;
+	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
+	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
+
 
 }
 
@@ -52,6 +76,8 @@ void SolarSystem::InitGL(int argc, char* argv[])
 
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
+	glEnable(GL_TEXTURE_2D);
+
 	glEnable(GL_DEPTH_TEST);
 
 	glDepthFunc(GL_ALWAYS);
@@ -63,10 +89,7 @@ void SolarSystem::InitGL(int argc, char* argv[])
 
 }
 
-void SolarSystem::InitObjects()
-{
 
-}
 
 void SolarSystem::InitLight()
 {
@@ -77,15 +100,65 @@ void SolarSystem::InitLight()
 
 void SolarSystem::Display()
 {
-	
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
+
+	sun->Draw();
+
+	glFlush(); //flushes the scene drawn to the graphics card
+	glutSwapBuffers();
 }
 
 void SolarSystem::Update()
 {
+	glLoadIdentity();
+	//Says the camera where to stay
+	gluLookAt(camera->eye.x, camera->eye.y, camera->eye.z,
+		camera->center.x, camera->center.y, camera->center.z,
+		camera->up.x, camera->up.y, camera->up.z); //Eye point, reference point: center(0,0,0), up vector (y)
 
+	glutPostRedisplay();
+
+	sun->Update();
 }
 
 void SolarSystem::Keyboard(unsigned char key, int x, int y)
 {
+	if (key == 'd')
+	{
+		
+		camera->center.x += 0.1f;
+		
+	}
+	else if (key == 'a')
+	{
+		
+		camera->center.x += -0.1f;
+	
 
+	}
+	else if (key == 's')
+	{
+		
+		camera->center.y += -0.1f;
+		
+
+	}
+	else if (key == 'w')
+	{
+		
+		camera->center.y += 0.1f;
+		
+	}
+	else if (key == 'e')
+	{
+		camera->eye.z += 0.1f;
+		camera->center.z += 0.1f;
+		camera->up.z += 0.1f;
+	}
+	else if (key == 'q')
+	{
+		camera->eye.z += -0.1;
+		camera->center.z += -0.1;
+		camera->up.z += -0.1;
+	}
 }
