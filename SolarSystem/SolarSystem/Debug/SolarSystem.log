@@ -1,6 +1,6 @@
 ﻿  SolarSystem.cpp
 C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(160,24): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(161,27): warning C4305: '+=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(162,23): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(181,24): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(182,27): warning C4305: '+=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(183,23): warning C4305: '+=': truncation from 'double' to 'float'
   SolarSystem.vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\Debug\SolarSystem.exe

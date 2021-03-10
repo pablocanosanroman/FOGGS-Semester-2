@@ -33,7 +33,7 @@ void SolarSystem::InitObjects()
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 
 	Texture2D* texture = new Texture2D();
-	texture->Load((char*)"stars.raw", 512, 512);
+	texture->Load((char*)"sun.raw", 512, 512);
 
 	//set up cube
 	sun = new Sun(cubeMesh, texture, 0.0f, 0.0f, -20.0f);
@@ -126,29 +126,50 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	if (key == 'd')
 	{
 		
-		camera->center.x += 0.1f;
+		camera->eye.x += -0.1f;
+		
 		
 	}
+	else if (key == 'l')
+	{
+		camera->center.x += 0.1f;
+	}
+	
 	else if (key == 'a')
 	{
 		
-		camera->center.x += -0.1f;
+		camera->eye.x += 0.1f;
 	
 
 	}
+	else if (key == 'j')
+	{
+		camera->center.x += -0.1f;
+	}
+	
 	else if (key == 's')
 	{
 		
-		camera->center.y += -0.1f;
+		camera->eye.y += 0.1f;
 		
 
 	}
+	else if (key == 'k')
+	{
+		camera->center.y += -0.1f;
+	}
+	
 	else if (key == 'w')
 	{
 		
-		camera->center.y += 0.1f;
+		camera->eye.y += -0.1f;
 		
 	}
+	else if (key == 'i')
+	{
+		camera->center.y += 0.1f;
+	}
+	
 	else if (key == 'e')
 	{
 		camera->eye.z += 0.1f;
