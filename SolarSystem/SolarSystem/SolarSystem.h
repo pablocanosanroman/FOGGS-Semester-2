@@ -6,6 +6,7 @@
 #include "GLUTCallbacks.h"
 #include "structures.h"
 #include "Sun.h"
+#include "Mercury.h"
 #define REFRESHRATE 16
 
 class SolarSystem
@@ -29,6 +30,7 @@ private:
 	Vector4* _lightPosition;
 	Lighting* _lightData;
 	SceneObject* sun;
+	SceneObject* mercury;
 
 
 };

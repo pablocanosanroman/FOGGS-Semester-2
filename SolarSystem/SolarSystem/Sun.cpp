@@ -7,7 +7,7 @@ Sun::Sun(Mesh* mesh, Texture2D* texture, float x, float y, float z): SceneObject
 	
 	
 
-	_rotationSpeed = 0.5f;
+	_rotationSpeed = 0.3f;
 
 	_position.x = x;
 	_position.y = y;

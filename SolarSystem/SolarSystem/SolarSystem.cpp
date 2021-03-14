@@ -22,6 +22,11 @@ SolarSystem::~SolarSystem()
 
 	delete sun;
 
+	delete mercury;
+
+	delete _lightPosition;
+
+	delete _lightData;
 
 }
 
@@ -31,14 +36,16 @@ void SolarSystem::InitObjects()
 	camera = new Camera();
 
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
+	Mesh* mercuryCubeMesh = MeshLoader::Load((char*)"mercury.txt");
 
 	Texture2D* texture = new Texture2D();
 	texture->Load((char*)"sun.raw", 512, 512);
 
 	//set up cube
 	sun = new Sun(cubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	mercury = new Mercury(mercuryCubeMesh, texture, 0.0, 0.0f, -20.f);
 
-	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 1.0f;
+	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 10.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -84,6 +91,10 @@ void SolarSystem::InitGL(int argc, char* argv[])
 
 	glEnable(GL_CULL_FACE);
 
+	glEnable(GL_LIGHTING);
+
+	glEnable(GL_LIGHT0);
+
 	glCullFace(GL_BACK);
 	
 
@@ -93,7 +104,25 @@ void SolarSystem::InitGL(int argc, char* argv[])
 
 void SolarSystem::InitLight()
 {
+	_lightPosition = new Vector4();
+	_lightPosition->x = 0.0;
+	_lightPosition->y = 0.0;
+	_lightPosition->z = 1.0;
+	_lightPosition->w = 0.0;
 
+	_lightData = new Lighting();
+	_lightData->ambient.x = 0.2;
+	_lightData->ambient.y = 0.2;
+	_lightData->ambient.z = 0.2;
+	_lightData->ambient.w = 1.0;
+	_lightData->diffuse.x = 0.8;
+	_lightData->diffuse.y = 0.8;
+	_lightData->diffuse.z = 0.8;
+	_lightData->diffuse.w = 1.0;
+	_lightData->specular.x = 0.2;
+	_lightData->specular.y = 0.2;
+	_lightData->specular.z = 0.2;
+	_lightData->specular.w = 1.0;
 }
 
 //Display, Update and Keyboard functions
@@ -103,6 +132,7 @@ void SolarSystem::Display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
 	sun->Draw();
+	mercury->Draw();
 
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -119,6 +149,16 @@ void SolarSystem::Update()
 	glutPostRedisplay();
 
 	sun->Update();
+	mercury->Update();
+
+	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->ambient.x));
+
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, &(_lightData->diffuse.x));
+
+	glLightfv(GL_LIGHT0, GL_SPECULAR, &(_lightData->specular.x));
+
+	glLightfv(GL_LIGHT0, GL_POSITION, &(_lightPosition->x));
+
 }
 
 void SolarSystem::Keyboard(unsigned char key, int x, int y)
@@ -173,13 +213,15 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	else if (key == 'e')
 	{
 		camera->eye.z += 0.1f;
-		camera->center.z += 0.1f;
-		camera->up.z += 0.1f;
+		camera->center.z += -0.1f;
+
+	
 	}
 	else if (key == 'q')
 	{
-		camera->eye.z += -0.1;
-		camera->center.z += -0.1;
-		camera->up.z += -0.1;
+		camera->eye.z += -0.1f;
+		camera->center.z += 0.1f;
+		
 	}
+
 }

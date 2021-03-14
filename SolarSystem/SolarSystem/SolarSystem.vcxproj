@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="GLUTCallbacks.h" />
+    <ClInclude Include="Mercury.h" />
     <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="SolarSystem.h" />
@@ -150,6 +151,7 @@
   <ItemGroup>
     <ClCompile Include="GLUTCallbacks.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mercury.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="SolarSystem.cpp" />
