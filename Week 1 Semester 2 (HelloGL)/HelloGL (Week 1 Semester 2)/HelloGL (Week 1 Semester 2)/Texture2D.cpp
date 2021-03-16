@@ -14,37 +14,50 @@ Texture2D::~Texture2D()
 	glDeleteTextures(1, &_ID);
 }
 
-bool Texture2D::Load(char* path, int width, int height)
+void Texture2D::Load(char* fileName, char* outFileName)
 {
-	char* tempTextureData;
-	int fileSize;
-	ifstream inFile;
-	_width = width;
-	_height = height;
+	bmpfile_ft magic;
+	bmpfile_header header;
+	int row, col;
+	bmp_colour* image_buffer;
 
-	inFile.open(path, ios::binary);
-
-	if (!inFile.good())
+	FILE* inFile, * outFile;
+	inFile = fopen(fileName, "rb");
+	outFile = fopen(outFileName, "wb");
+	if (inFile == NULL)
 	{
-		cerr << "Can't open texture file" << path << endl;
-		return false;
+		printf("\ncan't open input %s\n", fileName);
+		exit(1);
+	}
+	printf("\nOpened file\n");
+	fread(&magic, sizeof(bmpfile_ft), 1, inFile);
+	fread(&header, sizeof(bmpfile_header), 1, inFile);
+	fread(&bitMapInfo, sizeof(BITMAPINFOHEADER), 1, inFile);
+	if (bitMapInfo.width != bitMapInfo.height)
+	{
+		printf("\nBitmap is not square\n");
+		exit(1);
 	}
 
-	inFile.seekg(0, ios::end); //Seek to end of file
-	fileSize = (int)inFile.tellg(); //Get current position in file- The end, this gives us total file size
-	tempTextureData = new char[fileSize]; //Create a new array to store data
-	inFile.seekg(0, ios::beg); //Seek back to beginning of file
-	inFile.read(tempTextureData, fileSize); //Read in all the data in one go
-	inFile.close(); //Close the file
+	//create a buffer to hold each line as it is read in
+	image_buffer = (bmp_colour*)malloc(sizeof(bmp_colour) * bitMapInfo.width);
 
-	cout << path << "loaded" << endl;
+	for (row = 0; row < bitMapInfo.height; row++)
+	{
+		fread(image_buffer, sizeof(bmp_colour), bitMapInfo.width, inFile);
+		//bmp files store colours in the order blue, green, red
+		//need to rearrange to the order red, green, blue
+		for (col = 0; col < bitMapInfo.width; col++)
+		{
+			putc(image_buffer[col].r, outFile);
+			putc(image_buffer[+col].g, outFile);
+			putc(image_buffer[col].b, outFile);
+		}
+	}
 
-	glGenTextures(1, &_ID); //Get next Texture ID
-	glBindTexture(GL_TEXTURE_2D, _ID); // Bind the texture to the ID
-	gluBuild2DMipmaps(GL_TEXTURE_2D, 3, width, height, GL_RGB, GL_UNSIGNED_BYTE, tempTextureData); //Specify default of our texture image
-	/*glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);*/ //"Manual" mipmapping
+	//close the .bmp file and free up memory
+	fclose(inFile);
+	fclose(outFile);
+	free(image_buffer);
 
-	delete[] tempTextureData; //Clear up the data-we don't need this anymore
-	return true;
 }
