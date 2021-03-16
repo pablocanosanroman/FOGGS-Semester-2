@@ -46,13 +46,13 @@ typedef struct {
 
 }bmp_colour;
 
-BITMAPINFOHEADER bitMapInfo;
+
 
 class Texture2D
 {
 private:
 	GLuint _ID; //Texture ID
-	
+	BITMAPINFOHEADER bitMapInfo;
 
 public:
 	Texture2D();
