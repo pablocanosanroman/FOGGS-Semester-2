@@ -121,6 +121,11 @@ void HelloGL::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
+	Vector3 v = { -0.7f, 0.7f, -1.0f };
+	Color c = { 0.0f, 1.0f, 0.0f };
+
+	DrawString("OpenGL FOGGS Project", &v, &c);
+
 	for (int i = 0; i < 100; i++)
 	{
 		objects[i]->Draw();
@@ -131,9 +136,11 @@ void HelloGL::Display()
 		objects[i]->Draw();
 	}*/
 	
+
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
 	
+
 }
 
 void HelloGL::Update()
@@ -198,7 +205,18 @@ void HelloGL::Keyboard(unsigned char key, int x, int y)
 	
 }
 
+void HelloGL::DrawString(const char* text, Vector3* position, Color* color)
+{
+	glPushMatrix();
 
+	glTranslatef(position->x, position->y, position->z);
+	glRasterPos2f(0.0f, 0.0f);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, (unsigned char*)text);
+
+	glPopMatrix();
+
+	
+}
 
 
 HelloGL::~HelloGL(void)

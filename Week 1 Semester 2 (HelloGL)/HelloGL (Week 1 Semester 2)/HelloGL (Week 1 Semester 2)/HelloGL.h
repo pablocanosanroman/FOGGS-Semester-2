@@ -26,6 +26,7 @@ public:
 	void InitObjects();
 	void InitLight();
 	void InitGL(int argc, char* argv[]);
+	void DrawString(const char* text, Vector3* position, Color* color);
 	
 
 private:
