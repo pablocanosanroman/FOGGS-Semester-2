@@ -147,6 +147,7 @@
     <ClInclude Include="structures.h" />
     <ClInclude Include="Sun.h" />
     <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="Venus.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="GLUTCallbacks.cpp" />
@@ -157,6 +158,7 @@
     <ClCompile Include="SolarSystem.cpp" />
     <ClCompile Include="Sun.cpp" />
     <ClCompile Include="Texture2D.cpp" />
+    <ClCompile Include="Venus.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

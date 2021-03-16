@@ -23,6 +23,8 @@ SolarSystem::~SolarSystem()
 	delete sun;
 
 	delete mercury;
+	
+	delete venus;
 
 	delete _lightPosition;
 
@@ -37,13 +39,15 @@ void SolarSystem::InitObjects()
 
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 	Mesh* mercuryCubeMesh = MeshLoader::Load((char*)"mercury.txt");
+	Mesh* venusCubeMesh = MeshLoader::Load((char*)"venus.txt");
 
 	Texture2D* texture = new Texture2D();
 	texture->Load((char*)"sun.raw", 512, 512);
 
 	//set up cube
 	sun = new Sun(cubeMesh, texture, 0.0f, 0.0f, -20.0f);
-	mercury = new Mercury(mercuryCubeMesh, texture, 0.0, 0.0f, -20.f);
+	mercury = new Mercury(mercuryCubeMesh, texture, 0.0f, 0.0f, -20.f);
+	venus = new Venus(venusCubeMesh, texture, 0.0f, 0.0f, -20.0f);
 
 	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 10.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
@@ -133,6 +137,7 @@ void SolarSystem::Display()
 
 	sun->Draw();
 	mercury->Draw();
+	venus->Draw();
 
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -150,6 +155,7 @@ void SolarSystem::Update()
 
 	sun->Update();
 	mercury->Update();
+	venus->Update();
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->ambient.x));
 

@@ -5,7 +5,7 @@
 #include "GL\freeglut.h"
 #include "Structures.h"
 #include "SceneObject.h"
-#include "Sun.h"
+
 
 class Mercury : public SceneObject
 {

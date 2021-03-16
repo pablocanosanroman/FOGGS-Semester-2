@@ -7,6 +7,8 @@
 #include "structures.h"
 #include "Sun.h"
 #include "Mercury.h"
+#include "Venus.h"
+
 #define REFRESHRATE 16
 
 class SolarSystem
@@ -31,6 +33,7 @@ private:
 	Lighting* _lightData;
 	SceneObject* sun;
 	SceneObject* mercury;
+	SceneObject* venus;
 
 
 };
