@@ -52,7 +52,7 @@ void Mercury::Draw()
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 
-		glTranslatef(0.0f, 0.0f, -7.0f);
+		glTranslatef(0.0f, 0.0f, -10.0f);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 

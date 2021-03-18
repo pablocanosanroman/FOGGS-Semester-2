@@ -40,16 +40,20 @@ void SolarSystem::InitObjects()
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 	Mesh* mercuryCubeMesh = MeshLoader::Load((char*)"mercury.txt");
 	Mesh* venusCubeMesh = MeshLoader::Load((char*)"venus.txt");
+	Mesh* earthCubeMesh = MeshLoader::Load((char*)"earth.txt");
+	Mesh* marsCubeMesh = MeshLoader::Load((char*)"mars.txt");
 
 	Texture2D* texture = new Texture2D();
-	texture->Load((char*)"sun.raw", 512, 512);
+	texture->Load((char*)"penguins.raw", 512, 512);
 
 	//set up cube
 	sun = new Sun(cubeMesh, texture, 0.0f, 0.0f, -20.0f);
 	mercury = new Mercury(mercuryCubeMesh, texture, 0.0f, 0.0f, -20.f);
 	venus = new Venus(venusCubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	earth = new Earth(earthCubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	mars = new Mars(marsCubeMesh, texture, 0.0f, 0.0f, -20.0);
 
-	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 10.0f;
+	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 50.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -111,7 +115,7 @@ void SolarSystem::InitLight()
 	_lightPosition = new Vector4();
 	_lightPosition->x = 0.0;
 	_lightPosition->y = 0.0;
-	_lightPosition->z = 1.0;
+	_lightPosition->z = -20.0;
 	_lightPosition->w = 0.0;
 
 	_lightData = new Lighting();
@@ -138,6 +142,8 @@ void SolarSystem::Display()
 	sun->Draw();
 	mercury->Draw();
 	venus->Draw();
+	earth->Draw();
+	mars->Draw();
 
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -156,6 +162,8 @@ void SolarSystem::Update()
 	sun->Update();
 	mercury->Update();
 	venus->Update();
+	earth->Update();
+	mars->Update();
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->ambient.x));
 
@@ -176,54 +184,59 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 		
 		
 	}
-	else if (key == 'l')
+	
+	if (key == 'l')
 	{
 		camera->center.x += 0.1f;
 	}
 	
-	else if (key == 'a')
+	if (key == 'a')
 	{
 		
 		camera->eye.x += 0.1f;
 	
 
 	}
-	else if (key == 'j')
+	
+	if (key == 'j')
 	{
 		camera->center.x += -0.1f;
 	}
 	
-	else if (key == 's')
+	if (key == 's')
 	{
 		
 		camera->eye.y += 0.1f;
 		
 
 	}
-	else if (key == 'k')
+	
+	if (key == 'k')
 	{
 		camera->center.y += -0.1f;
 	}
 	
-	else if (key == 'w')
+	if (key == 'w')
 	{
 		
 		camera->eye.y += -0.1f;
 		
 	}
-	else if (key == 'i')
+	
+	if (key == 'i')
 	{
 		camera->center.y += 0.1f;
 	}
 	
-	else if (key == 'e')
+	if (key == 'e')
 	{
 		camera->eye.z += 0.1f;
 		camera->center.z += -0.1f;
 
 	
 	}
-	else if (key == 'q')
+	
+	if (key == 'q')
 	{
 		camera->eye.z += -0.1f;
 		camera->center.z += 0.1f;

@@ -52,7 +52,7 @@ void Venus::Draw()
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 
-		glTranslatef(0.0f, 0.0f, -12.0f);
+		glTranslatef(0.0f, 0.0f, -15.0f);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 

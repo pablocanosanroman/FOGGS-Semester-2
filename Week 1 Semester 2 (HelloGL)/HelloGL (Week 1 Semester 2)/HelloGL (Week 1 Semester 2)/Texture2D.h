@@ -7,6 +7,7 @@
 #include "GL\freeglut.h"
 #include <cstdint>
 
+
 typedef unsigned __int16 uint16_t;
 typedef __int32 int32_t;
 typedef __int64 int64_t;

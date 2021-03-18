@@ -8,6 +8,8 @@
 #include "Sun.h"
 #include "Mercury.h"
 #include "Venus.h"
+#include "Earth.h"
+#include "Mars.h"
 
 #define REFRESHRATE 16
 
@@ -34,7 +36,8 @@ private:
 	SceneObject* sun;
 	SceneObject* mercury;
 	SceneObject* venus;
-
+	SceneObject* earth;
+	SceneObject* mars;
 
 };
 

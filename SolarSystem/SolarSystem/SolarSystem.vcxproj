@@ -139,7 +139,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Earth.h" />
     <ClInclude Include="GLUTCallbacks.h" />
+    <ClInclude Include="Mars.h" />
     <ClInclude Include="Mercury.h" />
     <ClInclude Include="MeshLoader.h" />
     <ClInclude Include="SceneObject.h" />
@@ -150,8 +152,10 @@
     <ClInclude Include="Venus.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Earth.cpp" />
     <ClCompile Include="GLUTCallbacks.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Mars.cpp" />
     <ClCompile Include="Mercury.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
     <ClCompile Include="SceneObject.cpp" />
