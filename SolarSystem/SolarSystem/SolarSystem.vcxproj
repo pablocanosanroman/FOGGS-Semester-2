@@ -141,27 +141,35 @@
   <ItemGroup>
     <ClInclude Include="Earth.h" />
     <ClInclude Include="GLUTCallbacks.h" />
+    <ClInclude Include="Jupiter.h" />
     <ClInclude Include="Mars.h" />
     <ClInclude Include="Mercury.h" />
     <ClInclude Include="MeshLoader.h" />
+    <ClInclude Include="Neptune.h" />
+    <ClInclude Include="Saturn.h" />
     <ClInclude Include="SceneObject.h" />
     <ClInclude Include="SolarSystem.h" />
     <ClInclude Include="structures.h" />
     <ClInclude Include="Sun.h" />
     <ClInclude Include="Texture2D.h" />
+    <ClInclude Include="Uranus.h" />
     <ClInclude Include="Venus.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Earth.cpp" />
     <ClCompile Include="GLUTCallbacks.cpp" />
+    <ClCompile Include="Jupiter.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Mars.cpp" />
     <ClCompile Include="Mercury.cpp" />
     <ClCompile Include="MeshLoader.cpp" />
+    <ClCompile Include="Neptune.cpp" />
+    <ClCompile Include="Saturn.cpp" />
     <ClCompile Include="SceneObject.cpp" />
     <ClCompile Include="SolarSystem.cpp" />
     <ClCompile Include="Sun.cpp" />
     <ClCompile Include="Texture2D.cpp" />
+    <ClCompile Include="Uranus.cpp" />
     <ClCompile Include="Venus.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

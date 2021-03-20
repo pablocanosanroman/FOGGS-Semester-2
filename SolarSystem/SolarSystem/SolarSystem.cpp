@@ -26,6 +26,18 @@ SolarSystem::~SolarSystem()
 	
 	delete venus;
 
+	delete earth;
+
+	delete mars;
+
+	delete jupiter;
+
+	delete saturn;
+
+	delete uranus;
+
+	delete neptune;
+
 	delete _lightPosition;
 
 	delete _lightData;
@@ -42,6 +54,10 @@ void SolarSystem::InitObjects()
 	Mesh* venusCubeMesh = MeshLoader::Load((char*)"venus.txt");
 	Mesh* earthCubeMesh = MeshLoader::Load((char*)"earth.txt");
 	Mesh* marsCubeMesh = MeshLoader::Load((char*)"mars.txt");
+	Mesh* jupiterCubeMesh = MeshLoader::Load((char*)"jupiter.txt");
+	Mesh* saturnCubeMesh = MeshLoader::Load((char*)"saturn.txt");
+	Mesh* uranusCubeMesh = MeshLoader::Load((char*)"uranus.txt");
+	Mesh* neptuneCubeMesh = MeshLoader::Load((char*)"neptune.txt");
 
 	Texture2D* texture = new Texture2D();
 	texture->Load((char*)"penguins.raw", 512, 512);
@@ -51,9 +67,13 @@ void SolarSystem::InitObjects()
 	mercury = new Mercury(mercuryCubeMesh, texture, 0.0f, 0.0f, -20.f);
 	venus = new Venus(venusCubeMesh, texture, 0.0f, 0.0f, -20.0f);
 	earth = new Earth(earthCubeMesh, texture, 0.0f, 0.0f, -20.0f);
-	mars = new Mars(marsCubeMesh, texture, 0.0f, 0.0f, -20.0);
+	mars = new Mars(marsCubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	jupiter = new Jupiter(jupiterCubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	saturn = new Saturn(saturnCubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	uranus = new Uranus(uranusCubeMesh, texture, 0.0f, 0.0f, -20.0f);
+	neptune = new Neptune(neptuneCubeMesh, texture, 0.0f, 0.0f, -20.0f);
 
-	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 50.0f;
+	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 150.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -144,6 +164,10 @@ void SolarSystem::Display()
 	venus->Draw();
 	earth->Draw();
 	mars->Draw();
+	jupiter->Draw();
+	saturn->Draw();
+	uranus->Draw();
+	neptune->Draw();
 
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -164,6 +188,10 @@ void SolarSystem::Update()
 	venus->Update();
 	earth->Update();
 	mars->Update();
+	jupiter->Update();
+	saturn->Update();
+	uranus->Update();
+	neptune->Update();
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->ambient.x));
 
@@ -180,66 +208,66 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	if (key == 'd')
 	{
 		
-		camera->eye.x += -0.1f;
+		camera->eye.x += -0.3f;
 		
 		
 	}
 	
 	if (key == 'l')
 	{
-		camera->center.x += 0.1f;
+		camera->center.x += 0.3f;
 	}
 	
 	if (key == 'a')
 	{
 		
-		camera->eye.x += 0.1f;
+		camera->eye.x += 0.3f;
 	
 
 	}
 	
 	if (key == 'j')
 	{
-		camera->center.x += -0.1f;
+		camera->center.x += -0.3f;
 	}
 	
 	if (key == 's')
 	{
 		
-		camera->eye.y += 0.1f;
+		camera->eye.y += 0.3f;
 		
 
 	}
 	
 	if (key == 'k')
 	{
-		camera->center.y += -0.1f;
+		camera->center.y += -0.3f;
 	}
 	
 	if (key == 'w')
 	{
 		
-		camera->eye.y += -0.1f;
+		camera->eye.y += -0.3f;
 		
 	}
 	
 	if (key == 'i')
 	{
-		camera->center.y += 0.1f;
+		camera->center.y += 0.3f;
 	}
 	
 	if (key == 'e')
 	{
-		camera->eye.z += 0.1f;
-		camera->center.z += -0.1f;
+		camera->eye.z += 0.3f;
+		camera->center.z += -0.3f;
 
 	
 	}
 	
 	if (key == 'q')
 	{
-		camera->eye.z += -0.1f;
-		camera->center.z += 0.1f;
+		camera->eye.z += -0.3f;
+		camera->center.z += 0.3f;
 		
 	}
 

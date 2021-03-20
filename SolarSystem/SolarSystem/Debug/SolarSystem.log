@@ -1,12 +1,4 @@
-﻿  SolarSystem.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(8,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(122,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(123,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(124,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(126,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(127,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(128,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(130,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(131,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(132,30): warning C4305: '=': truncation from 'double' to 'float'
+﻿  Neptune.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Neptune.cpp(6,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Neptune.cpp(7,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   SolarSystem.vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\Debug\SolarSystem.exe

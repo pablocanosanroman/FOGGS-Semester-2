@@ -10,6 +10,10 @@
 #include "Venus.h"
 #include "Earth.h"
 #include "Mars.h"
+#include "Jupiter.h"
+#include "Saturn.h"
+#include "Uranus.h"
+#include "Neptune.h"
 
 #define REFRESHRATE 16
 
@@ -38,6 +42,10 @@ private:
 	SceneObject* venus;
 	SceneObject* earth;
 	SceneObject* mars;
+	SceneObject* jupiter;
+	SceneObject* saturn;
+	SceneObject* uranus;
+	SceneObject* neptune;
 
 };
 
