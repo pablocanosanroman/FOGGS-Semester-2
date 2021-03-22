@@ -1,6 +1,6 @@
 #include "Earth.h"
 
-Earth::Earth(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture)
+Earth::Earth(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture, x, y, z)
 {
 	_rotation.x = rand() % 360;
 	_rotation.y = rand() % 360;
@@ -44,6 +44,13 @@ void Earth::Draw()
 		glNormalPointer(GL_FLOAT, 0, _mesh->Normals);
 		glTexCoordPointer(2, GL_FLOAT, 0, _mesh->TexCoords);
 
+		Materials();
+
+		glMaterialfv(GL_FRONT, GL_AMBIENT, &(_material->ambient.x));
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->diffuse.y));
+		glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->specular.z));
+		glMaterialf(GL_FRONT, GL_SHININESS, _material->shininess);
+
 		glPushMatrix();
 
 		glTranslatef(_position.x, _position.y, _position.z);
@@ -69,7 +76,14 @@ void Earth::Update()
 	_rotation.y += _rotationSpeed;
 }
 
-void Earth::Light()
+void Earth::Materials()
 {
-
+	_material = new Material();
+	_material->ambient.x = 0.0; _material->ambient.y = 0.1; _material->ambient.z = 0.06;
+	_material->ambient.w = 1.0;
+	_material->diffuse.x = 0.0; _material->diffuse.y = 0.50980392; _material->diffuse.z = 0.50980392;
+	_material->diffuse.w = 1.0;
+	_material->specular.x = 0.50196078; _material->specular.y = 0.50196078; _material->specular.z = 0.50196078;
+	_material->specular.w = 1.0;
+	_material->shininess = 100.0f;
 }

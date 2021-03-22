@@ -26,11 +26,19 @@ struct Vector4
 
 struct Lighting
 {
+	
+
 	Vector4 ambient;
 
 	Vector4 diffuse;
 
 	Vector4 specular;
+
+	float constant;
+	float linear;
+	float quadratic;
+
+	
 };
 
 struct Material

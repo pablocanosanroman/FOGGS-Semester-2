@@ -12,7 +12,7 @@ class Venus : public SceneObject
 private:
 
 	Vector3 _rotation;
-	Vector3 _position;
+	
 	GLfloat _rotationSpeed;
 	Material* _material;
 
@@ -23,6 +23,6 @@ public:
 
 	void Draw();
 	void Update();
-	void Light();
+	void Materials();
 };
 

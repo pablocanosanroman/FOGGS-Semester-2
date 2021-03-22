@@ -2,6 +2,7 @@
 #include "MeshLoader.h"
 #include <ctime>
 
+
 //Constructor and destructor
 SolarSystem::SolarSystem(int argc, char* argv[])
 {
@@ -151,6 +152,11 @@ void SolarSystem::InitLight()
 	_lightData->specular.y = 0.2;
 	_lightData->specular.z = 0.2;
 	_lightData->specular.w = 1.0;
+	_lightData->constant = 1.0f;
+	_lightData->linear = 0.09f;
+	_lightData->quadratic = 0.032f;
+
+	
 }
 
 //Display, Update and Keyboard functions
@@ -205,69 +211,91 @@ void SolarSystem::Update()
 
 void SolarSystem::Keyboard(unsigned char key, int x, int y)
 {
+	
 	if (key == 'd')
 	{
 		
-		camera->eye.x += -0.3f;
+		camera->eye.x += -0.5f;
 		
 		
 	}
 	
 	if (key == 'l')
 	{
-		camera->center.x += 0.3f;
+		camera->center.x += 0.5f;
 	}
 	
 	if (key == 'a')
 	{
 		
-		camera->eye.x += 0.3f;
+		camera->eye.x += 0.5f;
 	
 
 	}
 	
 	if (key == 'j')
 	{
-		camera->center.x += -0.3f;
+		camera->center.x += -0.5f;
 	}
 	
 	if (key == 's')
 	{
 		
-		camera->eye.y += 0.3f;
+		camera->eye.y += 0.5f;
 		
 
 	}
 	
 	if (key == 'k')
 	{
-		camera->center.y += -0.3f;
+		camera->center.y += -0.5f;
 	}
 	
 	if (key == 'w')
 	{
 		
-		camera->eye.y += -0.3f;
+		camera->eye.y += -0.5f;
 		
 	}
 	
 	if (key == 'i')
 	{
-		camera->center.y += 0.3f;
+		camera->center.y += 0.5f;
 	}
 	
 	if (key == 'e')
 	{
-		camera->eye.z += 0.3f;
-		camera->center.z += -0.3f;
+		camera->eye.z += 0.5f;
+		camera->center.z += -0.5f;
 
 	
 	}
 	
 	if (key == 'q')
 	{
-		camera->eye.z += -0.3f;
-		camera->center.z += 0.3f;
+		camera->eye.z += -0.5f;
+		camera->center.z += 0.5f;
+		
+	}
+
+	if (key == 't')
+	{
+		
+
+	}
+
+	if (key == 'f')
+	{
+		
+	}
+	if (key == 'g')
+	{
+		
+
+	}
+
+	if (key == 'h')
+	{
 		
 	}
 

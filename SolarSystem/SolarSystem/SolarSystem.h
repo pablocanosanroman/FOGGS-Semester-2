@@ -17,8 +17,11 @@
 
 #define REFRESHRATE 16
 
+
+
 class SolarSystem
 {
+
 public:
 
 	SolarSystem(int argc, char* argv[]);
