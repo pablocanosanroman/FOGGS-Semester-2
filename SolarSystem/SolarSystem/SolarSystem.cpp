@@ -165,6 +165,13 @@ void SolarSystem::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
+	Vector3 v = { -50.0f, 50.0f, -2.0f };
+	Color c = { 0.0f, 1.0f, 0.0f };
+
+	glDisable(GL_LIGHTING);
+	DrawString("Cube Solar System", &v, &c);
+	glEnable(GL_LIGHTING);
+
 	sun->Draw();
 	mercury->Draw();
 	venus->Draw();
@@ -280,23 +287,44 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 
 	if (key == 't')
 	{
-		
+		sun->MoveUp();
+	
 
 	}
 
 	if (key == 'f')
 	{
-		
+		sun->MoveLeft();
 	}
 	if (key == 'g')
 	{
-		
+		sun->MoveDown();
 
 	}
 
 	if (key == 'h')
 	{
-		
+		sun->MoveRight();
 	}
 
+	if (key == 'r')
+	{
+		sun->MoveForward();
+	}
+
+	if (key == 'y')
+	{
+		sun->MoveBackwards();
+	}
+}
+
+void SolarSystem::DrawString(const char* text, Vector3* position, Color* color)
+{
+	glPushMatrix();
+
+	glTranslatef(position->x, position->y, position->z);
+	glRasterPos2f(0.0f, 0.0f);
+	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, (unsigned char*)text);
+
+	glPopMatrix();
 }

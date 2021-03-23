@@ -34,3 +34,32 @@ Vector3 SceneObject::GetPosition()
 	return _position;
 }
 
+void SceneObject::MoveLeft()
+{
+	_position.x -= 0.3f;
+}
+
+void SceneObject::MoveRight()
+{
+	_position.x += 0.3f;
+}
+
+void SceneObject::MoveUp()
+{
+	_position.y += 0.3f;
+}
+
+void SceneObject::MoveDown()
+{
+	_position.y -= 0.3f;
+}
+
+void SceneObject::MoveForward()
+{
+	_position.z -= 0.3f;
+}
+
+void SceneObject::MoveBackwards()
+{
+	_position.z += 0.3f;
+}

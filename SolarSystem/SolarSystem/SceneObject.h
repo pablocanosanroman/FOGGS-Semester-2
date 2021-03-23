@@ -19,7 +19,12 @@ public:
 	virtual void SetPosition(Vector3 new_position);
 	Vector3 GetPosition();
 	
-	
+	virtual void MoveLeft();
+	virtual void MoveRight();
+	virtual void MoveUp();
+	virtual void MoveDown();
+	virtual void MoveForward();
+	virtual void MoveBackwards();
 	
 };
 
