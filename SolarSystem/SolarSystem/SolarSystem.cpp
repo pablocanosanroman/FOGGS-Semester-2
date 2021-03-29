@@ -1,6 +1,8 @@
 #include "SolarSystem.h"
 #include "MeshLoader.h"
 #include <ctime>
+#include <iostream>
+
 
 
 //Constructor and destructor
@@ -134,9 +136,9 @@ void SolarSystem::InitGL(int argc, char* argv[])
 void SolarSystem::InitLight()
 {
 	_lightPosition = new Vector4();
-	_lightPosition->x = 0.0;
-	_lightPosition->y = 0.0;
-	_lightPosition->z = -20.0;
+	_lightPosition->x = sun->GetOrbitalPosition().x;
+	_lightPosition->y = sun->GetOrbitalPosition().y;
+	_lightPosition->z = sun->GetOrbitalPosition().z;
 	_lightPosition->w = 0.0;
 
 	_lightData = new Lighting();
@@ -152,9 +154,7 @@ void SolarSystem::InitLight()
 	_lightData->specular.y = 0.2;
 	_lightData->specular.z = 0.2;
 	_lightData->specular.w = 1.0;
-	_lightData->constant = 1.0f;
-	_lightData->linear = 0.09f;
-	_lightData->quadratic = 0.032f;
+
 
 	
 }
@@ -171,7 +171,7 @@ void SolarSystem::Display()
 	glDisable(GL_LIGHTING);
 	DrawString("Cube Solar System", &v, &c);
 	glEnable(GL_LIGHTING);
-
+	
 	sun->Draw();
 	mercury->Draw();
 	venus->Draw();
@@ -181,6 +181,8 @@ void SolarSystem::Display()
 	saturn->Draw();
 	uranus->Draw();
 	neptune->Draw();
+
+	
 
 	glFlush(); //flushes the scene drawn to the graphics card
 	glutSwapBuffers();
@@ -205,6 +207,8 @@ void SolarSystem::Update()
 	saturn->Update();
 	uranus->Update();
 	neptune->Update();
+
+	DoCollision();
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, &(_lightData->ambient.x));
 
@@ -327,4 +331,44 @@ void SolarSystem::DrawString(const char* text, Vector3* position, Color* color)
 	glutBitmapString(GLUT_BITMAP_TIMES_ROMAN_24, (unsigned char*)text);
 
 	glPopMatrix();
+}
+
+float SolarSystem::calculateDistanceSquared(Vector3 object1, Vector3 object2)
+{
+	float distance = ((object1.x - object2.x) * (object1.x - object2.x))
+		+ ((object1.y - object2.y) * (object1.y - object2.y))
+		+ ((object1.z - object2.z) * (object1.z - object2.z));
+
+	return distance;
+}
+
+Vector3 SolarSystem::GetOffsetPosition(Vector3 sun, Vector3 planet, Vector3 planet_rotation)
+{
+	float difference = abs(planet.z) - abs(sun.z);
+	float x = difference * sin(planet_rotation.y);
+	float y = planet.y;
+	float z = difference * cos(planet_rotation.y);
+
+	Vector3 planet_real_position = { x, y, z };
+	
+
+	return planet_real_position;
+}
+
+void SolarSystem::DoCollision()
+{
+	Vector3 new_position = { -500000000, -500000000, -500000000 };
+
+	Vector3 mercury_real_position = GetOffsetPosition(sun->GetOrbitalPosition(), mercury->GetPosition(), mercury->GetRotation());
+	float distance = calculateDistanceSquared(sun->GetOrbitalPosition(), mercury_real_position);
+	
+
+	std::cout << sun->GetOrbitalPosition().x << " " << sun->GetOrbitalPosition().y << " " << sun->GetOrbitalPosition().z << std::endl;
+	std::cout << mercury_real_position.x << " " << mercury_real_position.y << " " << mercury_real_position.z << std::endl;
+	
+	
+	/*if (distance == 0)
+	{
+		mercury->SetPosition(new_position);
+	}*/
 }

@@ -7,11 +7,15 @@ Jupiter::Jupiter(Mesh* mesh, Texture2D* texture, float x, float y, float z) : Sc
 
 
 
-	_rotationSpeed = 0.5f;
+	_rotationSpeed = 0.7f;
 
-	_position.x = x;
-	_position.y = y;
-	_position.z = z;
+	_orbitalposition.x = x;
+	_orbitalposition.y = y;
+	_orbitalposition.z = z;
+
+	_position.x = 0.0f;
+	_position.y = 0.0f;
+	_position.z = -45.0f;
 
 }
 
@@ -55,11 +59,11 @@ void Jupiter::Draw()
 		glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->specular.z));
 		glMaterialf(GL_FRONT, GL_SHININESS, _material->shininess);
 
-		glTranslatef(_position.x, _position.y, _position.z);
+		glTranslatef(_orbitalposition.x, _orbitalposition.y, _orbitalposition.z);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 
-		glTranslatef(0.0f, 0.0f, -45.0f);
+		glTranslatef(_position.x, _position.y, _position.z);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 

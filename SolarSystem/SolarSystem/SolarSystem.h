@@ -34,6 +34,9 @@ public:
 	void InitLight();
 	void InitGL(int argc, char* argv[]);
 	void DrawString(const char* text, Vector3* position, Color* color);
+	float calculateDistanceSquared(Vector3 object1, Vector3 object2);
+	void DoCollision();
+	Vector3 GetOffsetPosition(Vector3 sun, Vector3 planet, Vector3 planet_rotation);
 
 private:
 

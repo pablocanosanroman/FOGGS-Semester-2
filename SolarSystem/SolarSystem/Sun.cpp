@@ -9,9 +9,9 @@ Sun::Sun(Mesh* mesh, Texture2D* texture, float x, float y, float z): SceneObject
 
 	_rotationSpeed = 0.3f;
 
-	_position.x = x;
-	_position.y = y;
-	_position.z = z;
+	_orbitalposition.x = x;
+	_orbitalposition.y = y;
+	_orbitalposition.z = z;
 
 }
 
@@ -56,7 +56,7 @@ void Sun::Draw()
 
 		glPushMatrix();
 
-		glTranslatef(_position.x, _position.y, _position.z);
+		glTranslatef(_orbitalposition.x, _orbitalposition.y, _orbitalposition.z);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 

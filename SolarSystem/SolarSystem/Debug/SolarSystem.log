@@ -1,12 +1,2 @@
-﻿  SolarSystem.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(143,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(144,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(145,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(147,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(148,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(149,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(151,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(152,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(153,30): warning C4305: '=': truncation from 'double' to 'float'
+﻿  SceneObject.cpp
   SolarSystem.vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\Debug\SolarSystem.exe

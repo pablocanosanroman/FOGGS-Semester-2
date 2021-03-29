@@ -34,9 +34,7 @@ struct Lighting
 
 	Vector4 specular;
 
-	float constant;
-	float linear;
-	float quadratic;
+
 
 	
 };

@@ -7,11 +7,15 @@ Venus::Venus(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneO
 
 
 
-	_rotationSpeed = 0.5f;
+	_rotationSpeed = 2.0f;
 
-	_position.x = x;
-	_position.y = y;
-	_position.z = z;
+	_orbitalposition.x = x;
+	_orbitalposition.y = y;
+	_orbitalposition.z = z;
+
+	_position.x = 0.0f;
+	_position.y = 0.0f;
+	_position.z = -15.0f;
 
 }
 
@@ -55,11 +59,11 @@ void Venus::Draw()
 
 		glPushMatrix();
 
-		glTranslatef(_position.x, _position.y, _position.z);
+		glTranslatef(_orbitalposition.x, _orbitalposition.y, _orbitalposition.z);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 
-		glTranslatef(0.0f, 0.0f, -15.0f);
+		glTranslatef(_position.x, _position.y, _position.z);
 
 		glRotatef(_rotation.y, 0.0f, 1.0f, 0.0f);
 

@@ -11,7 +11,7 @@ class Earth : public SceneObject
 {
 private:
 
-	Vector3 _rotation;
+	
 	
 	GLfloat _rotationSpeed;
 	Material* _material;
