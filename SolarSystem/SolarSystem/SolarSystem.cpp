@@ -4,7 +4,6 @@
 #include <iostream>
 
 
-
 //Constructor and destructor
 SolarSystem::SolarSystem(int argc, char* argv[])
 {
@@ -76,7 +75,7 @@ void SolarSystem::InitObjects()
 	uranus = new Uranus(uranusCubeMesh, texture, 0.0f, 0.0f, -20.0f);
 	neptune = new Neptune(neptuneCubeMesh, texture, 0.0f, 0.0f, -20.0f);
 
-	camera->eye.x = 0.0f; camera->eye.y = 0.0f; camera->eye.z = 150.0f;
+	camera->eye.x = 0.0f; camera->eye.y = 150.0f; camera->eye.z = 150.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -345,9 +344,9 @@ float SolarSystem::calculateDistanceSquared(Vector3 object1, Vector3 object2)
 Vector3 SolarSystem::GetOffsetPosition(Vector3 sun, Vector3 planet, Vector3 planet_rotation)
 {
 	float difference = abs(planet.z) - abs(sun.z);
-	float x = difference * sin(planet_rotation.y);
+	float x = difference * sin(planet_rotation.y * (PI/180));
 	float y = planet.y;
-	float z = difference * cos(planet_rotation.y);
+	float z = difference * cos(planet_rotation.y * (PI/180));
 
 	Vector3 planet_real_position = { x, y, z };
 	
@@ -359,16 +358,17 @@ void SolarSystem::DoCollision()
 {
 	Vector3 new_position = { -500000000, -500000000, -500000000 };
 
-	Vector3 mercury_real_position = GetOffsetPosition(sun->GetOrbitalPosition(), mercury->GetPosition(), mercury->GetRotation());
-	float distance = calculateDistanceSquared(sun->GetOrbitalPosition(), mercury_real_position);
+	Vector3 mercury_offset_position = GetOffsetPosition(sun->GetOrbitalPosition(), neptune->GetOrbitalPosition(), neptune->GetRotation());
+	float distance = calculateDistanceSquared(sun->GetOrbitalPosition(), mercury_offset_position);
 	
-
-	std::cout << sun->GetOrbitalPosition().x << " " << sun->GetOrbitalPosition().y << " " << sun->GetOrbitalPosition().z << std::endl;
-	std::cout << mercury_real_position.x << " " << mercury_real_position.y << " " << mercury_real_position.z << std::endl;
+	std::cout << distance << std::endl;
+	std::cout << neptune->GetPosition().z << std::endl;
+	/*std::cout << mercury_offset_position.z << std::endl;
+	std::cout << mercury_offset_position.x << std::endl;*/
+	std::cout << neptune->GetRotation().y << std::endl;
 	
-	
-	/*if (distance == 0)
+	if (distance <= 0)
 	{
 		mercury->SetPosition(new_position);
-	}*/
+	}
 }

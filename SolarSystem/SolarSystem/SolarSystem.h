@@ -16,7 +16,7 @@
 #include "Neptune.h"
 
 #define REFRESHRATE 16
-
+#define PI 3.14159265359
 
 
 class SolarSystem
