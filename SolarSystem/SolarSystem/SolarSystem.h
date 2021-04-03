@@ -15,6 +15,8 @@
 #include "Uranus.h"
 #include "Neptune.h"
 
+#include <string>
+
 #define REFRESHRATE 16
 #define PI 3.14159265359
 
@@ -33,16 +35,20 @@ public:
 	void InitObjects();
 	void InitLight();
 	void InitGL(int argc, char* argv[]);
-	void DrawString(const char* text, Vector3* position, Color* color);
+	void DrawString(std::string text, Vector3* position, Color* color);
 	float calculateDistanceSquared(Vector3 object1, Vector3 object2);
 	void DoCollision();
 	Vector3 GetOffsetPosition(Vector3 sun, Vector3 planet, Vector3 planet_rotation);
 
 private:
 
-
+	std::string camera_eyex_coordinates;
+	std::string camera_eyey_coordinates;
+	std::string camera_eyez_coordinates;
+	std::string camera_centerx_coordinates;
+	std::string camera_centery_coordinates;
+	std::string camera_centerz_coordinates;
 	Camera* camera;
-	Vector4* _lightPosition;
 	Lighting* _lightData;
 	SceneObject* sun;
 	SceneObject* mercury;

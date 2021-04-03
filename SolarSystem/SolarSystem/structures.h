@@ -27,6 +27,7 @@ struct Vector4
 struct Lighting
 {
 	
+	Vector4 direction;
 
 	Vector4 ambient;
 

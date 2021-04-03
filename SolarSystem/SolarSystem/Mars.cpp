@@ -2,7 +2,7 @@
 
 Mars::Mars(Mesh* mesh, Texture2D* texture, float x, float y, float z) : SceneObject(mesh, texture, x, y, z)
 {
-	_rotation.x = rand() % 360;
+	
 	_rotation.y = rand() % 360;
 
 	_rotationSpeed = 1.0f;
@@ -83,11 +83,11 @@ void Mars::Update()
 void Mars::Materials()
 {
 	_material = new Material();
-	_material->ambient.x = 0.8; _material->ambient.y = 0.05; _material->ambient.z = 0.05;
+	_material->ambient.x = 1.0; _material->ambient.y = 0.0; _material->ambient.z = 0.0;
 	_material->ambient.w = 0.0;
-	_material->diffuse.x = 0.8; _material->diffuse.y = 0.05; _material->diffuse.z = 0.05;
+	_material->diffuse.x = 0.0; _material->diffuse.y = 0.0; _material->diffuse.z = 0.0;
 	_material->diffuse.w = 0.0;
-	_material->specular.x = 1.0; _material->specular.y = 1.0; _material->specular.z = 1.0;
+	_material->specular.x = 0.0; _material->specular.y = 0.0; _material->specular.z = 0.0;
 	_material->specular.w = 0.0;
 	_material->shininess = 100.0f;
 }
