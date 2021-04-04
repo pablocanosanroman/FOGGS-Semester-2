@@ -3,6 +3,7 @@
 #include <gl/GL.h> //OpenGL
 #include <gl/GLU.h> // OpenGL Utilities
 #include "GL\freeglut.h" //freeglut library
+#include "MeshLoader.h"
 #include "GLUTCallbacks.h"
 #include "structures.h"
 #include "Sun.h"

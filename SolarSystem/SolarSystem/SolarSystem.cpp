@@ -1,5 +1,4 @@
 #include "SolarSystem.h"
-#include "MeshLoader.h"
 #include <ctime>
 #include <iostream>
 
@@ -118,9 +117,9 @@ void SolarSystem::InitGL(int argc, char* argv[])
 
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
-	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_TEXTURE_2D); //Enable the creation of textures 2D
 
-	glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST); //Enable the depth test
 
 	glDepthFunc(GL_ALWAYS);
 

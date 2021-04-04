@@ -1,5 +1,5 @@
 #include "GLUTCallbacks.h"
-#include "SolarSystem.h"
+
 
 //Namespace implementation
 namespace GLUTCallbacks

@@ -1,6 +1,36 @@
-﻿  SolarSystem.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(166,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(389,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(391,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  Earth.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Earth.cpp(6,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Earth.cpp(85,56): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Earth.cpp(85,84): warning C4305: '=': truncation from 'double' to 'float'
+  GLUTCallbacks.cpp
+  Jupiter.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Jupiter.cpp(6,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Jupiter.cpp(88,58): warning C4305: '=': truncation from 'double' to 'float'
+  Mars.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Mars.cpp(6,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Mercury.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Mercury.cpp(6,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Mercury.cpp(88,32): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Mercury.cpp(88,63): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Mercury.cpp(88,94): warning C4305: '=': truncation from 'double' to 'float'
+  Neptune.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Neptune.cpp(7,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Saturn.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(5,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(86,28): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(86,84): warning C4305: '=': truncation from 'double' to 'float'
+  SolarSystem.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(9,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(165,30): warning C4305: '=': truncation from 'double' to 'float'
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(388,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(390,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  Sun.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Sun.cpp(5,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Uranus.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Uranus.cpp(6,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Uranus.cpp(88,56): warning C4305: '=': truncation from 'double' to 'float'
+  Venus.cpp
+C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Venus.cpp(5,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  main.cpp
+  Generating Code...
   SolarSystem.vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\Debug\SolarSystem.exe

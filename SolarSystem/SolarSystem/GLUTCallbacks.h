@@ -1,4 +1,7 @@
 #pragma once
+
+#include "SolarSystem.h"
+
 class SolarSystem;
 
 namespace GLUTCallbacks

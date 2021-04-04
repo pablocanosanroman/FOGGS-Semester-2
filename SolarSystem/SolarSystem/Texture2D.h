@@ -14,7 +14,7 @@ public:
 	Texture2D();
 	~Texture2D();
 
-	bool LoadRAW(const char* cstrFilePath, const int nWidth, const int nHeight);
+	
 	int LoadTGA(const char* textureFileName);
 
 	GLuint GetID() const { return _ID; }

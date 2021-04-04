@@ -4,7 +4,7 @@
 #include <gl/GL.h>
 #include <gl/GLU.h>
 #include "GL\freeglut.h"
-#include "Structures.h"
+#include "structures.h"
 #include "SceneObject.h"
 
 class Venus : public SceneObject
