@@ -76,10 +76,10 @@ void SceneObject::MoveDown()
 
 void SceneObject::MoveForward()
 {
-	_orbitalposition.z -= 0.3f;
+	_orbitalposition.z += 0.3f;
 }
 
 void SceneObject::MoveBackwards()
 {
-	_orbitalposition.z += 0.3f;
+	_orbitalposition.z -= 0.3f;
 }

@@ -1,7 +1,2 @@
-﻿  Saturn.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(5,23): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(86,28): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(86,84): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(88,29): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\Saturn.cpp(88,87): warning C4305: '=': truncation from 'double' to 'float'
+﻿  SceneObject.cpp
   SolarSystem.vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\Debug\SolarSystem.exe

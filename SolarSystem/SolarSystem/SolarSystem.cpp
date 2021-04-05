@@ -315,15 +315,15 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	if (key == 'e')
 	{
 		camera->eye.z += 0.5f;
-		camera->center.z += -0.5f;
+		
 
 	
 	}
-	
+
 	if (key == 'q')
 	{
 		camera->eye.z += -0.5f;
-		camera->center.z += 0.5f;
+		
 		
 	}
 
@@ -333,6 +333,8 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	
 
 	}
+
+	
 
 	if (key == 'f')
 	{
