@@ -85,9 +85,9 @@ void Saturn::Materials()
 	_material = new Material();
 	_material->ambient.x = 0.7; _material->ambient.y = 1.0; _material->ambient.z = 0.2;
 	_material->ambient.w = 0.0;
-	_material->diffuse.x = 0.0; _material->diffuse.y = 0.0; _material->diffuse.z = 0.0;
+	_material->diffuse.x = -0.7; _material->diffuse.y = -1.0; _material->diffuse.z = -0.2;
 	_material->diffuse.w = 0.0;
-	_material->specular.x = 0.0; _material->specular.y = 0.0; _material->specular.z = 0.0;
+	_material->specular.x = 0.2; _material->specular.y = 0.2; _material->specular.z = 0.2;
 	_material->specular.w = 0.0;
 	_material->shininess = 100.0f;
 }

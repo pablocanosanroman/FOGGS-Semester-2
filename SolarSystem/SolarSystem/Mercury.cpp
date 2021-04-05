@@ -87,9 +87,9 @@ void Mercury::Materials()
 	_material = new Material();
 	_material->ambient.x = 0.24725; _material->ambient.y = 0.1995; _material->ambient.z = 0.0745;
 	_material->ambient.w = 0.0;
-	_material->diffuse.x = 0.0; _material->diffuse.y = 0.0; _material->diffuse.z = 0.0;
+	_material->diffuse.x = -0.24725; _material->diffuse.y = -0.1995; _material->diffuse.z = -0.0745;
 	_material->diffuse.w = 0.0;
-	_material->specular.x = 0.0; _material->specular.y = 0.0; _material->specular.z = 0.0;
+	_material->specular.x = 0.24725; _material->specular.y = 0.1995; _material->specular.z = 0.0745;
 	_material->specular.w = 0.0;
 	_material->shininess = 100.0f;
 }

@@ -149,15 +149,15 @@ void SolarSystem::InitLight()
 	_lightData->ambient.w = 1.0f;
 
 	//Diffuse Light
-	_lightData->diffuse.x = 0.3f;
-	_lightData->diffuse.y = 0.3f;
-	_lightData->diffuse.z = 0.3f;
+	_lightData->diffuse.x = 2.7f;
+	_lightData->diffuse.y = 2.7f;
+	_lightData->diffuse.z = 2.7f;
 	_lightData->diffuse.w = 1.0f;
 
 	//Specular Light
-	_lightData->specular.x = 0.2f;
-	_lightData->specular.y = 0.2f;
-	_lightData->specular.z = 0.2f;
+	_lightData->specular.x = 2.7f;
+	_lightData->specular.y = 2.7f;
+	_lightData->specular.z = 2.7f;
 	_lightData->specular.w = 1.0f;
 
 	//Direction Light

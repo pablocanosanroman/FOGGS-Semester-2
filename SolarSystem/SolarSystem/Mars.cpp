@@ -51,8 +51,8 @@ void Mars::Draw()
 		Materials();
 
 		glMaterialfv(GL_FRONT, GL_AMBIENT, &(_material->ambient.x));
-		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->diffuse.y));
-		glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->specular.z));
+		glMaterialfv(GL_FRONT, GL_DIFFUSE, &(_material->diffuse.x));
+		glMaterialfv(GL_FRONT, GL_SPECULAR, &(_material->specular.x));
 		glMaterialf(GL_FRONT, GL_SHININESS, _material->shininess);
 
 		glPushMatrix();
@@ -85,9 +85,9 @@ void Mars::Materials()
 	_material = new Material();
 	_material->ambient.x = 1.0; _material->ambient.y = 0.0; _material->ambient.z = 0.0;
 	_material->ambient.w = 0.0;
-	_material->diffuse.x = 0.0; _material->diffuse.y = 0.0; _material->diffuse.z = 0.0;
+	_material->diffuse.x = -1.5; _material->diffuse.y = 0.0; _material->diffuse.z = 0.0;
 	_material->diffuse.w = 0.0;
-	_material->specular.x = 0.0; _material->specular.y = 0.0; _material->specular.z = 0.0;
+	_material->specular.x = 1.0; _material->specular.y = 1.0; _material->specular.z = 1.0;
 	_material->specular.w = 0.0;
 	_material->shininess = 100.0f;
 }
