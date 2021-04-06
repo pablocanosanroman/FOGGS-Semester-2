@@ -12,11 +12,13 @@ namespace GLUTCallbacks
 
 	void Init(SolarSystem* gl)
 	{
+		//Initialize the solar system
 		solarSystem = gl;
 	}
 
 	void Display()
 	{
+		//It calls the solar system display / draw all the objects
 		if (solarSystem != nullptr)
 		{
 			solarSystem->Display();
@@ -25,6 +27,7 @@ namespace GLUTCallbacks
 
 	void Timer(int preferredRefresh)
 	{
+		//It set a timer and calls the update
 		preferredRefresh = 16;
 		int updateTime = glutGet(GLUT_ELAPSED_TIME);
 		solarSystem->Update();
@@ -34,6 +37,7 @@ namespace GLUTCallbacks
 
 	void Keyboard(unsigned char key, int x, int y)
 	{
+		//Initialize the keyboard function in the solar system cpp
 		solarSystem->Keyboard(key, x, y);
 	}
 }

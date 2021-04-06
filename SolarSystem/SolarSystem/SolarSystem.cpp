@@ -6,6 +6,7 @@
 //Constructor and destructor
 SolarSystem::SolarSystem(int argc, char* argv[])
 {
+	//Initialize everything in the game
 	srand(time(NULL));
 
 	InitGL(argc, argv);
@@ -19,6 +20,8 @@ SolarSystem::SolarSystem(int argc, char* argv[])
 
 SolarSystem::~SolarSystem()
 {
+	//Destructor
+
 	delete camera;
 
 	delete sun;
@@ -68,18 +71,18 @@ void SolarSystem::InitObjects()
 	
 
 	//set up cubes
-	sun = new Sun(cubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	mercury = new Mercury(mercuryCubeMesh, planetTexture, 0.0f, 0.0f, -20.f);
-	venus = new Venus(venusCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	earth = new Earth(earthCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	mars = new Mars(marsCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	jupiter = new Jupiter(jupiterCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	saturn = new Saturn(saturnCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	uranus = new Uranus(uranusCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
-	neptune = new Neptune(neptuneCubeMesh, planetTexture, 0.0f, 0.0f, -20.0f);
+	sun = new Sun(cubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	mercury = new Mercury(mercuryCubeMesh, planetTexture, 0.0f, 0.0f, 0.f);
+	venus = new Venus(venusCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	earth = new Earth(earthCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	mars = new Mars(marsCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	jupiter = new Jupiter(jupiterCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	saturn = new Saturn(saturnCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	uranus = new Uranus(uranusCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	neptune = new Neptune(neptuneCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
 
 	//Set up camera position
-	camera->eye.x = 0.0f; camera->eye.y = 150.0f; camera->eye.z = 150.0f;
+	camera->eye.x = 0.0f; camera->eye.y = 150.0f; camera->eye.z = 170.0f;
 	camera->center.x = 0.0f; camera->center.y = 0.0f; camera->center.z = 0.0f;
 	camera->up.x = 0.0f; camera->up.y = 1.0f; camera->up.z = 0.0f;
 
@@ -121,13 +124,13 @@ void SolarSystem::InitGL(int argc, char* argv[])
 
 	glEnable(GL_DEPTH_TEST); //Enable the depth test
 
-	glDepthFunc(GL_ALWAYS);
+	glDepthFunc(GL_ALWAYS); 
 
-	glEnable(GL_CULL_FACE);
+	glEnable(GL_CULL_FACE); //Enable cull facing
 
-	glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHTING); //Enable Lighting
 
-	glEnable(GL_LIGHT0);
+	glEnable(GL_LIGHT0); //Enable Lighting
 
 	glCullFace(GL_BACK);
 	
@@ -174,7 +177,7 @@ void SolarSystem::Display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
-	//Draw text to the screen
+	//Vectors for the text
 	Vector3 vector_title_string = { -60.0f, 80.0f, -2.0f };
 	Vector3 vector_eye_string = { -62.5f, 70.0f, -2.0f };
 	Vector3 vector_eyex_string = { -40.0f, 70.0f, -2.0f };
@@ -186,6 +189,7 @@ void SolarSystem::Display()
 	Vector3 vector_centerz_string = { 0.0f, 60.0f, -2.0f };
 	Color color_strings = { 255.0f, 255.0f, 255.0f };
 
+	//Change the camera eye and center to strings to use the text function
 	camera_eyex_coordinates = std::to_string(camera->eye.x);
 	camera_eyey_coordinates = std::to_string(camera->eye.y);
 	camera_eyez_coordinates = std::to_string(camera->eye.z);
@@ -193,6 +197,7 @@ void SolarSystem::Display()
 	camera_centery_coordinates = std::to_string(camera->center.y);
 	camera_centerz_coordinates = std::to_string(camera->center.z);
 
+	//Draws all the text in the screen
 	glDisable(GL_LIGHTING);
 	DrawString("Cube Solar System", &vector_title_string, &color_strings);
 	DrawString("Eye CAM: ", &vector_eye_string, &color_strings);
@@ -258,6 +263,7 @@ void SolarSystem::Update()
 
 }
 
+//Function with all the keyboard interaction- WASD ->Move the camera eye. QE ->Zoom the camera eye. RTYFGH ->Move the sun. IJKL-> Move the camera center
 void SolarSystem::Keyboard(unsigned char key, int x, int y)
 {
 	
@@ -334,8 +340,6 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 
 	}
 
-	
-
 	if (key == 'f')
 	{
 		sun->MoveLeft();
@@ -362,34 +366,43 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	}
 }
 
+//Function to create text in the screen
 void SolarSystem::DrawString(std::string text, Vector3* position, Color* color)
 {
 	glPushMatrix();
 
+	//It sets the text in a specific position and gives it a color
 	glTranslatef(position->x, position->y, position->z);
 	glColor3f(color->r, color->g, color->b);
 	glRasterPos2f(0.0f, 0.0f);
+
+	//It sets the font of the text and write the text
 	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*)text.c_str());
 	
 
 	glPopMatrix();
 }
 
-float SolarSystem::calculateDistanceSquared(Vector3 object1, Vector3 object2)
+//Calculate the distance of the planet and the sun calculating the module in space of both objects.
+float SolarSystem::calculateDistance(Vector3 object1, Vector3 object2)
 {
-	float distance = ((object1.x - object2.x) * (object1.x - object2.x))
+	float distance = sqrt(((object1.x - object2.x) * (object1.x - object2.x))
 		+ ((object1.y - object2.y) * (object1.y - object2.y))
-		+ ((object1.z - object2.z) * (object1.z - object2.z));
+		+ ((object1.z - object2.z) * (object1.z  - object2.z)));
 
 	return distance;
 }
 
-Vector3 SolarSystem::GetOffsetPosition(Vector3 sun, Vector3 planet, Vector3 planet_rotation)
+//Function to get the position of the planets in their orbits
+Vector3 SolarSystem::GetOffsetPosition(Vector3 planet, Vector3 orbit_rotation)
 {
-	float difference = abs(planet.z) - abs(sun.z);
-	float x = difference * sin(planet_rotation.y * (PI/180));
+	//Calculate the difference between planet and the center of the solar system
+	float difference = abs(planet.z);
+
+	//Calculate the x, y and z of the planet in the orbit and return it
+	float x = -(difference * sin(orbit_rotation.y * (PI/180)));
 	float y = planet.y;
-	float z = difference * cos(planet_rotation.y * (PI/180));
+	float z = -(difference * cos(orbit_rotation.y * (PI/180)));
 
 	Vector3 planet_real_position = { x, y, z };
 	
@@ -397,21 +410,80 @@ Vector3 SolarSystem::GetOffsetPosition(Vector3 sun, Vector3 planet, Vector3 plan
 	return planet_real_position;
 }
 
+//Function to make the collisions. When the sun hits a planet, the planet disappear.
 void SolarSystem::DoCollision()
 {
+
 	Vector3 new_position = { -500000000, -500000000, -500000000 };
 
-	Vector3 mercury_offset_position = GetOffsetPosition(sun->GetOrbitalPosition(), neptune->GetOrbitalPosition(), neptune->GetRotation());
-	float distance = calculateDistanceSquared(sun->GetOrbitalPosition(), mercury_offset_position);
-	
-	std::cout << distance << std::endl;
-	std::cout << neptune->GetPosition().z << std::endl;
-	/*std::cout << mercury_offset_position.z << std::endl;
-	std::cout << mercury_offset_position.x << std::endl;*/
-	std::cout << neptune->GetRotation().y << std::endl;
-	
-	if (distance <= 0)
+	//We get the position of the planets in the orbit and the distance between the sun and the planet
+	Vector3 mercury_offset_position = GetOffsetPosition(mercury->GetOrbitalPosition(), mercury->GetOrbitalRotation());
+	float mercury_distance = calculateDistance(sun->GetPosition(), mercury_offset_position);
+
+	Vector3 venus_offset_position = GetOffsetPosition(venus->GetOrbitalPosition(), venus->GetOrbitalRotation());
+	float venus_distance = calculateDistance(sun->GetPosition(), venus_offset_position);
+
+	Vector3 earth_offset_position = GetOffsetPosition(earth->GetOrbitalPosition(), earth->GetOrbitalRotation());
+	float earth_distance = calculateDistance(sun->GetPosition(), earth_offset_position);
+
+	Vector3 mars_offset_position = GetOffsetPosition(mars->GetOrbitalPosition(), mars->GetOrbitalRotation());
+	float mars_distance = calculateDistance(sun->GetPosition(), mars_offset_position);
+
+	Vector3 jupiter_offset_position = GetOffsetPosition(jupiter->GetOrbitalPosition(), jupiter->GetOrbitalRotation());
+	float jupiter_distance = calculateDistance(sun->GetPosition(), jupiter_offset_position);
+
+	Vector3 saturn_offset_position = GetOffsetPosition(saturn->GetOrbitalPosition(), saturn->GetOrbitalRotation());
+	float saturn_distance = calculateDistance(sun->GetPosition(), saturn_offset_position);
+
+	Vector3 uranus_offset_position = GetOffsetPosition(uranus->GetOrbitalPosition(), uranus->GetOrbitalRotation());
+	float uranus_distance = calculateDistance(sun->GetPosition(), uranus_offset_position);
+
+	Vector3 neptune_offset_position = GetOffsetPosition(neptune->GetOrbitalPosition(), neptune->GetOrbitalRotation());
+	float neptune_distance = calculateDistance(sun->GetPosition(), neptune_offset_position);
+
+
+
+	//If distance is more than 0 and less than 5, set the planet to the new position
+
+	if (mercury_distance > 0 && mercury_distance < 5)
 	{
-		mercury->SetPosition(new_position);
+		mercury->SetOrbitalPosition(new_position);
 	}
+
+	if (venus_distance > 0 && venus_distance < 5)
+	{
+		venus->SetOrbitalPosition(new_position);
+	}
+
+	if (earth_distance > 0 && earth_distance < 5)
+	{
+		earth->SetOrbitalPosition(new_position);
+	}
+
+	if (mars_distance > 0 && mars_distance < 5)
+	{
+		mars->SetOrbitalPosition(new_position);
+	}
+
+	if (jupiter_distance > 0 && jupiter_distance < 5)
+	{
+		jupiter->SetOrbitalPosition(new_position);
+	}
+
+	if (saturn_distance > 0 && saturn_distance < 5)
+	{
+		saturn->SetOrbitalPosition(new_position);
+	}
+
+	if (uranus_distance > 0 && uranus_distance < 5)
+	{
+		uranus->SetOrbitalPosition(new_position);
+	}
+
+	if (neptune_distance > 0 && neptune_distance < 5)
+	{
+		neptune->SetOrbitalPosition(new_position);
+	}
+
+	
 }

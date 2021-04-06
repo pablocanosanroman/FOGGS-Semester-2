@@ -7,6 +7,7 @@ using namespace std;
 
 namespace MeshLoader
 {
+	//Functions to load vertices, normals, indices and TexCoords from the text files
 	void LoadVertices(ifstream& inFile, Mesh& mesh);
 	void LoadNormals(ifstream& inFile, Mesh& mesh);
 	void LoadIndices(ifstream& inFile, Mesh& mesh);
@@ -78,6 +79,8 @@ namespace MeshLoader
 			}
 		}
 	}
+
+	//Function to open the file and load all the information of the file
 
 	Mesh* MeshLoader::Load(char* path)
 	{
