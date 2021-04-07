@@ -43,12 +43,17 @@ public:
 
 private:
 
+	int planet_count;
 	std::string camera_eyex_coordinates;
 	std::string camera_eyey_coordinates;
 	std::string camera_eyez_coordinates;
 	std::string camera_centerx_coordinates;
 	std::string camera_centery_coordinates;
 	std::string camera_centerz_coordinates;
+	std::string planet_count_text;
+	std::string sunx_coordinates;
+	std::string suny_coordinates;
+	std::string sunz_coordinates;
 	Camera* camera;
 	Lighting* _lightData;
 	SceneObject* sun;

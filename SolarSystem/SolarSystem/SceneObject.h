@@ -18,6 +18,7 @@ public:
 
 	virtual void Update();
 	virtual void Draw();
+	virtual void SetPosition(Vector3 new_position);
 	Vector3 GetPosition();
 	virtual void SetOrbitalPosition(Vector3 new_position);
 	Vector3 GetOrbitalPosition();

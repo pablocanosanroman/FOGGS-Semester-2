@@ -25,6 +25,11 @@ void SceneObject::Update()
 
 }
 
+void SceneObject::SetPosition(Vector3 new_position)
+{
+	_initialposition = new_position;
+}
+
 //Function that gives me the position of the sun or the position of the orbital axis for the other planets
 Vector3 SceneObject::GetPosition()
 {

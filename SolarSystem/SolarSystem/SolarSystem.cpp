@@ -51,6 +51,9 @@ void SolarSystem::InitObjects()
 	//Set up of the camera
 	camera = new Camera();
 
+	//Set up the planet count
+	planet_count = 0;
+
 	//Load all the cube files
 	Mesh* cubeMesh = MeshLoader::Load((char*)"cube.txt");
 	Mesh* mercuryCubeMesh = MeshLoader::Load((char*)"mercury.txt");
@@ -178,15 +181,22 @@ void SolarSystem::Display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); //This clears the scene
 
 	//Vectors for the text
-	Vector3 vector_title_string = { -60.0f, 80.0f, -2.0f };
-	Vector3 vector_eye_string = { -62.5f, 70.0f, -2.0f };
-	Vector3 vector_eyex_string = { -40.0f, 70.0f, -2.0f };
-	Vector3 vector_eyey_string = { -22.5f, 70.0f, -2.0f };
-	Vector3 vector_eyez_string = { 0.0, 70.0f, -2.0f };
-	Vector3 vector_center_string = { -65.0f, 60.0f, -2.0f };
-	Vector3 vector_centerx_string = { -40.0f, 60.0f, -2.0f };
-	Vector3 vector_centery_string = { -20.0f, 60.0f, -2.0f };
-	Vector3 vector_centerz_string = { 0.0f, 60.0f, -2.0f };
+	Vector3 title_string = { -60.0f, 80.0f, -2.0f };
+	Vector3 eye_string = { -60.0f, 75.0f, -2.0f };
+	Vector3 eyex_string = { -40.0f, 75.0f, -2.0f };
+	Vector3 eyey_string = { -20.0f, 75.0f, -2.0f };
+	Vector3 eyez_string = { 0.0, 75.0f, -2.0f };
+	Vector3 center_string = { -62.5f, 70.0f, -2.0f };
+	Vector3 centerx_string = { -40.0f, 70.0f, -2.0f };
+	Vector3 centery_string = { -20.0f, 70.0f, -2.0f };
+	Vector3 centerz_string = { 0.0f, 70.0f, -2.0f };
+	Vector3 sun_string = { -62.5f, 65.0f, -2.0f };
+	Vector3 sunx_string = { -40.0f, 65.0f, -2.0f };
+	Vector3 suny_string = { -20.0f, 65.0f, -2.0f };
+	Vector3 sunz_string = { 0.0f, 65.0f, -2.0f };
+	Vector3 planet_count_title = { 20.0, 80.0f, -2.0f };
+	Vector3 planet_count_string = { 50.0f, 80.0f, -2.0f };
+	Vector3 restart_game_string = { -30.0f, 0.0f, -2.0f };
 	Color color_strings = { 255.0f, 255.0f, 255.0f };
 
 	//Change the camera eye and center to strings to use the text function
@@ -196,18 +206,32 @@ void SolarSystem::Display()
 	camera_centerx_coordinates = std::to_string(camera->center.x);
 	camera_centery_coordinates = std::to_string(camera->center.y);
 	camera_centerz_coordinates = std::to_string(camera->center.z);
+	sunx_coordinates = std::to_string(sun->GetPosition().x);
+	suny_coordinates = std::to_string(sun->GetPosition().y);
+	sunz_coordinates = std::to_string(sun->GetPosition().z);
+	planet_count_text = std::to_string(planet_count);
 
 	//Draws all the text in the screen
 	glDisable(GL_LIGHTING);
-	DrawString("Cube Solar System", &vector_title_string, &color_strings);
-	DrawString("Eye CAM: ", &vector_eye_string, &color_strings);
-	DrawString(camera_eyex_coordinates, &vector_eyex_string, &color_strings);
-	DrawString(camera_eyey_coordinates, &vector_eyey_string, &color_strings);
-	DrawString(camera_eyez_coordinates, &vector_eyez_string, &color_strings);
-	DrawString("Center CAM: ", &vector_center_string, &color_strings);
-	DrawString(camera_centerx_coordinates, &vector_centerx_string, &color_strings);
-	DrawString(camera_centery_coordinates, &vector_centery_string, &color_strings);
-	DrawString(camera_centerz_coordinates, &vector_centerz_string, &color_strings);
+	DrawString("Cube Solar System", &title_string, &color_strings);
+	DrawString("Eye CAM: ", &eye_string, &color_strings);
+	DrawString(camera_eyex_coordinates, &eyex_string, &color_strings);
+	DrawString(camera_eyey_coordinates, &eyey_string, &color_strings);
+	DrawString(camera_eyez_coordinates, &eyez_string, &color_strings);
+	DrawString("Center CAM: ", &center_string, &color_strings);
+	DrawString(camera_centerx_coordinates, &centerx_string, &color_strings);
+	DrawString(camera_centery_coordinates, &centery_string, &color_strings);
+	DrawString(camera_centerz_coordinates, &centerz_string, &color_strings);
+	DrawString("Destroyed Planets: ", &planet_count_title, &color_strings);
+	DrawString(planet_count_text, &planet_count_string, &color_strings);
+	DrawString("Sun: ", &sun_string, &color_strings);
+	DrawString(sunx_coordinates, &sunx_string, &color_strings);
+	DrawString(suny_coordinates, &suny_string, &color_strings);
+	DrawString(sunz_coordinates, &sunz_string, &color_strings);
+	if (planet_count == 8)
+	{
+		DrawString("Press spacebar to set all the planets to the initial position", &restart_game_string, &color_strings);
+	}
 	glEnable(GL_LIGHTING);
 	
 	//Draw Objects
@@ -364,6 +388,24 @@ void SolarSystem::Keyboard(unsigned char key, int x, int y)
 	{
 		sun->MoveUp();
 	}
+
+	if (planet_count == 8)
+	{
+		if (key == ' ')
+		{
+			sun->SetPosition({ 0,0,0 });
+			mercury->SetOrbitalPosition({ 0,0,-10.0 });
+			venus->SetOrbitalPosition({ 0,0,-15.0 });
+			earth->SetOrbitalPosition({ 0,0,-25.0 });
+			mars->SetOrbitalPosition({ 0,0,-35.0 });
+			jupiter->SetOrbitalPosition({ 0,0,-45.0 });
+			saturn->SetOrbitalPosition({ 0,0,-55.0 });
+			uranus->SetOrbitalPosition({ 0,0, -65.0 });
+			neptune->SetOrbitalPosition({ 0,0, -75.0 });
+
+			planet_count = 0;
+		}
+	}
 }
 
 //Function to create text in the screen
@@ -377,7 +419,7 @@ void SolarSystem::DrawString(std::string text, Vector3* position, Color* color)
 	glRasterPos2f(0.0f, 0.0f);
 
 	//It sets the font of the text and write the text
-	glutBitmapString(GLUT_BITMAP_HELVETICA_18, (unsigned char*)text.c_str());
+	glutBitmapString(GLUT_BITMAP_HELVETICA_12, (unsigned char*)text.c_str());
 	
 
 	glPopMatrix();
@@ -448,41 +490,49 @@ void SolarSystem::DoCollision()
 	if (mercury_distance > 0 && mercury_distance < 5)
 	{
 		mercury->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (venus_distance > 0 && venus_distance < 5)
 	{
 		venus->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (earth_distance > 0 && earth_distance < 5)
 	{
 		earth->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (mars_distance > 0 && mars_distance < 5)
 	{
 		mars->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (jupiter_distance > 0 && jupiter_distance < 5)
 	{
 		jupiter->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (saturn_distance > 0 && saturn_distance < 5)
 	{
 		saturn->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (uranus_distance > 0 && uranus_distance < 5)
 	{
 		uranus->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	if (neptune_distance > 0 && neptune_distance < 5)
 	{
 		neptune->SetOrbitalPosition(new_position);
+		planet_count += 1;
 	}
 
 	
