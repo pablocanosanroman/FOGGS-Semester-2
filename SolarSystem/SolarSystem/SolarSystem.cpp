@@ -71,10 +71,14 @@ void SolarSystem::InitObjects()
 	Texture2D* planetTexture = new Texture2D();
 	planetTexture->LoadTGA("Textures/planet.tga");
 
+	//Set up texture for the sun
+	Texture2D* sunTexture = new Texture2D();
+	sunTexture->LoadTGA("Textures/sun.tga");
+
 	
 
 	//set up cubes
-	sun = new Sun(cubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
+	sun = new Sun(cubeMesh, sunTexture, 0.0f, 0.0f, 0.0f);
 	mercury = new Mercury(mercuryCubeMesh, planetTexture, 0.0f, 0.0f, 0.f);
 	venus = new Venus(venusCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
 	earth = new Earth(earthCubeMesh, planetTexture, 0.0f, 0.0f, 0.0f);
