@@ -123,15 +123,15 @@ void SolarSystem::InitGL(int argc, char* argv[])
 	glViewport(0, 0, 800, 800); //Set the viewport of the entire window
 
 	//Paramenters: (Field of view angle, Aspect Ration, Near Clipping distance, Far Clipping distance)
-	gluPerspective(45, 1, 0, 1000); //Set the correct perspective for the camera 3D
+	gluPerspective(45, 1, 1.0, 1000); //Set the correct perspective for the camera 3D
 
 	glMatrixMode(GL_MODELVIEW); //Back to the model view matrix to work with our models
 
+	glDepthFunc(GL_LESS);
+
 	glEnable(GL_TEXTURE_2D); //Enable the creation of textures 2D
 
-	glEnable(GL_DEPTH_TEST); //Enable the depth test
-
-	glDepthFunc(GL_ALWAYS); 
+	glClearDepth(1.0f);
 
 	glEnable(GL_CULL_FACE); //Enable cull facing
 
@@ -140,6 +140,9 @@ void SolarSystem::InitGL(int argc, char* argv[])
 	glEnable(GL_LIGHT0); //Enable Lighting
 
 	glCullFace(GL_BACK);
+
+	glEnable(GL_DEPTH_TEST); //Enable the depth test
+
 	
 
 }
