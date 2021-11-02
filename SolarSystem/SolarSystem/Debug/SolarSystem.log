@@ -1,6 +1,2 @@
-﻿  SolarSystem.cpp
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(10,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(178,30): warning C4305: '=': truncation from 'double' to 'float'
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(452,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\SolarSystem\SolarSystem.cpp(454,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+﻿  Texture2D.cpp
   SolarSystem.vcxproj -> C:\Users\Pablo\source\repos\GitHub\FOGGS-Semester-2\SolarSystem\Debug\SolarSystem.exe
